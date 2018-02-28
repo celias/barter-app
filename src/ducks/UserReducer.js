@@ -8,9 +8,9 @@ export function getUser() {
     return {
         type: GET_USER,
         payload: axios
-          .get("http://localhost:3001/api/user")
+          .get("/api/user")
           .then(response => {
-              return response.data;
+              return response.data[0];
           })
           .catch(err => {
               return err.message;

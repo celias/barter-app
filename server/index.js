@@ -9,6 +9,7 @@ const Auth0Strategy = require('passport-auth0');
 const path = require("path");
 
 const mainCtrl = require('./controllers/mainCtrl');
+const userCtrl = require('./controllers/userCtrl');
 
 const port = 3001;
 
@@ -25,7 +26,6 @@ const {
 massive(process.env.CONNECTION_STRING)
     .then(db => {
         app.set("db", db);
-        console.log("dbconeccted")
     })
     .catch(console.log);
 
@@ -54,11 +54,12 @@ passport.use(new Auth0Strategy({
     callbackURL:'/auth'
 },
 (accessToken, refreshToken, extraParams, profile, done) => {
+    // console.log(profile);
     app
       .get('db') // fetch the reference to my database and then fetch from my database
       .getUserByAuthid(profile.id)
       .then(response => {
-          console.log(profile.id);
+          console.log(response)
           if(!response[0]){
             app.get('db').createUserByAuthid([profile.id, profile.displayName])
             .then(create => done(null, create[0]));
@@ -74,7 +75,7 @@ passport.deserializeUser((user, done) => done(null, user));
 
 
 app.get("/auth", mainCtrl.login)
-app.get('/api/getUser', mainCtrl.getUser);
+app.get('/api/user', userCtrl.getUser);
 app.get('/api/logout', mainCtrl.logout);
 
 

@@ -8,13 +8,12 @@ import { getUser } from './../../ducks/UserReducer';
 
 
 class Home extends Component{
-   componentDidMount() {
-     this.props.getUser();
-    }
+ // COMPONENT DID MOUNT WAS HERE
+ 
     render() {
      return (
        <div>
-         <a href={process.env.REACT_APP_LOGIN}><button>LOGIN</button></a>
+         <a href={process.env.REACT_APP_LOGIN}><button>LOGIN/REGISTER</button></a>
 
         {this.props.user ? (
         <div>
