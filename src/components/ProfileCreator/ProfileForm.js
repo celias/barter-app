@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 class ProfileForm extends Component {
     render(){
+        console.log(this.props);
         return(
             <div className="profileForm">
             <h1 className="displayName">{this.props.displayName}</h1>

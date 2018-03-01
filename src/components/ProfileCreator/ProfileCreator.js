@@ -4,8 +4,10 @@ import { getDisplayName, getUserAbout, getUserLocation, getUserEmail, getUserMed
 import SubmitBtnHome from './../SubmitBtn/SubmitBtnHome';
 import ImageUpload from './../ImageUpload/ImageUpload';
 
+
 class ProfileCreator extends Component {
     render(){
+        console.log(this.props);
         const { getDisplayName, getUserAbout, getUserLocation, getUserEmail, getUserMediums, getUserBarters, getUserWants, getUserImg } = this.props;
         return (
             <div className="formContainer">
@@ -20,13 +22,14 @@ class ProfileCreator extends Component {
                 <input type="text" placeholder="What materials are you looking for?" onChange={ ( e ) => getUserWants( e.target.value ) } />
                 <input type="img" alt="userImg" placeholder="Upload your profile picture." onChange={ ( e ) => getUserImg( e.target.value ) } />
                 <SubmitBtnHome />
+                
            </div>
         )
     }
 }
 
 function mapStateToProps(state) {
-    const { displayName, userAbout, userLocation, userEmail, userMediums, userBarters, userWants, userImg } = state;
+    const { displayName, userAbout, userLocation, userEmail, userMediums, userBarters, userWants, userImg } = state.form;
     return {
         displayName, userAbout, userLocation, userEmail, userMediums, userBarters, userWants, userImg
     };

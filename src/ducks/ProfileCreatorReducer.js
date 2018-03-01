@@ -4,7 +4,7 @@ import axios from 'axios';
 const initialProfileState = {
     displayName: '',
     userAbout: '',
-    userLocation: '',
+    userLocation: 'test',
     userEmail: '',
     userMediums: '',
     userBarters: '',
@@ -27,6 +27,7 @@ const UPDATE_USER_IMG = "UPDATE_USER_IMG";
 export default function profileReducer( state = initialProfileState, action ) {
     switch(action.type){
         case UPDATE_DISPLAY_NAME:
+        console.log("hit reducer!")
         return Object.assign({}, state, { displayName: action.payload } );
         
         case UPDATE_USER_ABOUT:
