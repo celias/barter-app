@@ -5,6 +5,8 @@ import './App.css';
 import Header from './components/Header/Header';
 import ProfileCreator from './components/ProfileCreator/ProfileCreator';
 import ImageUpload from './components/ImageUpload/ImageUpload';
+import SubmitBtnHome from './components/SubmitBtn/SubmitBtnHome';
+
 
 
 
@@ -32,6 +34,7 @@ class App extends Component {
         <p className="App-intro">
 
         <ProfileCreator />
+        <SubmitBtnHome />
 
         </p>
         <ImageUpload /> 
