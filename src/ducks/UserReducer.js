@@ -26,7 +26,7 @@ export function getUser() {
      errMessage: null
  };
 
- export default function reducer(state = initialState, action) {
+ export default function userReducer(state = initialState, action) {
      switch(action.type) {
          case `${GET_USER}_PENDING`:
            return Object.assign({}, state, { isLoading: true });
