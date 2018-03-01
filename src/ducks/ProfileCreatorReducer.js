@@ -8,7 +8,8 @@ const initialProfileState = {
     userEmail: '',
     userMediums: '',
     userBarters: '',
-    userWants: ''
+    userWants: '',
+    userImg: ''
 }
 
 // CONSTANTS
@@ -19,6 +20,7 @@ const UPDATE_USER_EMAIL = "UPDATE_USER_EMAIL";
 const UPDATE_USER_MEDIUMS = "UPDATE_USER_MEDIUMS";
 const UPDATE_USER_BARTERS = "UPDATE_USER_BARTERS";
 const UPDATE_USER_WANTS = "UPDATE_USER_WANTS";
+const UPDATE_USER_IMG = "UPDATE_USER_IMG";
 
 
 
@@ -44,6 +46,9 @@ export default function profileReducer( state = initialProfileState, action ) {
         
         case UPDATE_USER_WANTS:
         return Object.assign({}, state, { userWants: action.payload } );
+
+        case UPDATE_USER_IMG:
+        return Object.assign({}, state, { userImg: action.payload} );
         
         default: return state;
     }
@@ -96,5 +101,12 @@ export function getUserWants(want){
     return {
         type: UPDATE_USER_WANTS,
         payload: want
+    }
+}
+
+export function getUserImg(img){
+    return{
+        type: UPDATE_USER_IMG,
+        payload: img
     }
 }

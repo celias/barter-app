@@ -6,11 +6,15 @@ import Header from './components/Header/Header';
 import ProfileCreator from './components/ProfileCreator/ProfileCreator';
 import ImageUpload from './components/ImageUpload/ImageUpload';
 
+
+
 import routes from './routes';
 
 
 class App extends Component {
+  
   render() {
+    
     return (
       <div className="App">
           <h1 className="App-title">bArter</h1>
@@ -30,7 +34,9 @@ class App extends Component {
         <ProfileCreator />
 
         </p>
-        <ImageUpload />
+        <ImageUpload /> 
+
+        
       </div>
     );
   }
