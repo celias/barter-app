@@ -20,7 +20,7 @@ class Header extends Component {
           <p>Update Profile</p>
         </Link></button>
 
-        <Link to="/profileform">
+        <Link to="/profile">
           <p>My profile</p>
         </Link>
 

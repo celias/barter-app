@@ -7,6 +7,7 @@ import ProfileCreator from "./components/ProfileCreator/ProfileCreator";
 import UserProfile from "./components/UserProfile/UserProfile";
 import BarterMain from "./components/BarterMain/BarterMain";
 import ProfileForm from "./components/ProfileCreator/ProfileForm";
+import Profile from "./components/ProfileCreator/Profile";
 
 export default (
     <Switch>
@@ -15,7 +16,7 @@ export default (
       <Route path="/userprofile" component={UserProfile} />
       <Route path="/barter" component={BarterMain} />
       <Route path="/profileform" component={ProfileForm} />
-      <Route
+      <Route path="/profile" component={Profile} />
         path="*"
         render={() => (
             <div>
