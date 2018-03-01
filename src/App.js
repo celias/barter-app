@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 
 import Header from './components/Header/Header';
+import ProfileCreator from './components/ProfileCreator/ProfileCreator';
+import ImageUpload from './components/ImageUpload/ImageUpload';
 
 import routes from './routes';
 
@@ -24,7 +26,11 @@ class App extends Component {
         { routes }
 
         <p className="App-intro">
+
+        <ProfileCreator />
+
         </p>
+        <ImageUpload />
       </div>
     );
   }

@@ -2,13 +2,13 @@ import axios from 'axios';
 
 // INITIAL STATE
 const initialProfileState = {
-    displayName = '',
-    userAbout = '',
-    userLocation = '',
-    userEmail = '',
-    userMediums = '',
-    userBarters = '',
-    userWants = ''
+    displayName: '',
+    userAbout: '',
+    userLocation: '',
+    userEmail: '',
+    userMediums: '',
+    userBarters: '',
+    userWants: ''
 }
 
 // CONSTANTS
@@ -22,7 +22,7 @@ const UPDATE_USER_WANTS = "UPDATE_USER_WANTS";
 
 
 
-export default function profileReducer( state = initialState, action ) {
+export default function profileReducer( state = initialProfileState, action ) {
     switch(action.type){
         case UPDATE_DISPLAY_NAME:
         return Object.assign({}, state, { displayName: action.payload } );
