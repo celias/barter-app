@@ -77,6 +77,7 @@ passport.deserializeUser((user, done) => done(null, user));
 app.get("/auth", mainCtrl.login)
 app.get('/api/user', userCtrl.getUser);
 app.get('/api/logout', mainCtrl.logout);
+app.post("/api/updateUserProfile", userCtrl.updateUserProfile);
 
 
 app.listen(port, () => {

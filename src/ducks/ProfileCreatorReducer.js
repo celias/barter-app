@@ -4,7 +4,7 @@ import axios from 'axios';
 const initialProfileState = {
     displayName: '',
     userAbout: '',
-    userLocation: 'test',
+    userLocation: '',
     userEmail: '',
     userMediums: '',
     userBarters: '',
@@ -21,13 +21,14 @@ const UPDATE_USER_MEDIUMS = "UPDATE_USER_MEDIUMS";
 const UPDATE_USER_BARTERS = "UPDATE_USER_BARTERS";
 const UPDATE_USER_WANTS = "UPDATE_USER_WANTS";
 const UPDATE_USER_IMG = "UPDATE_USER_IMG";
-
+const UPDATE_USER_PROFILE = "UPDATE_USER_PROFILE";
 
 
 export default function profileReducer( state = initialProfileState, action ) {
+    console.log(action.type)
     switch(action.type){
         case UPDATE_DISPLAY_NAME:
-        console.log("hit reducer!")
+        
         return Object.assign({}, state, { displayName: action.payload } );
         
         case UPDATE_USER_ABOUT:
@@ -50,6 +51,15 @@ export default function profileReducer( state = initialProfileState, action ) {
 
         case UPDATE_USER_IMG:
         return Object.assign({}, state, { userImg: action.payload} );
+
+        case UPDATE_USER_PROFILE + '_PENDING':
+        return Object.assign({}, state, { loading: true });
+
+        case UPDATE_USER_PROFILE + '_FULFILLED':
+        return Object.assign({}, state, { loading: false });
+
+        case UPDATE_USER_PROFILE + '_REJECTED':
+        return Object.assign({}, state, { loading: false });
         
         default: return state;
     }
@@ -111,3 +121,35 @@ export function getUserImg(img){
         payload: img
     }
 }
+
+export function updateUserProfile(displayName,
+    userAbout,
+    userLocation,
+    userEmail,
+    userMediums,
+    userBarters,
+    userWants,
+    userImg){
+        // console.log(displayName,
+        //     userAbout,
+        //     userLocation,
+        //     userEmail,
+        //     userMediums,
+        //     userBarters,
+        //     userWants,
+        //     userImg)
+    return{
+        type: UPDATE_USER_PROFILE,
+        payload: axios
+        .post("/api/updateUserProfile", {displayName,
+            userAbout,
+            userLocation,
+            userEmail,
+            userMediums,
+            userBarters,
+            userWants,
+            userImg})
+        .then(response => response.data)
+        .catch(console.log)
+    };
+ }
