@@ -7,15 +7,15 @@ class ProfileForm extends Component {
         console.log(this.props);
         return(
             <div className="profileForm">
-            <h1 className="displayName">{this.props.displayName}</h1>
+            <h1 className="displayName">{this.props.user.name}</h1>
             <br />
-            <p>{this.props.userAbout}</p>
-            <p>{this.props.userLocation}</p>
-            <p>{this.props.userEmail}</p>
-            <p>{this.props.userMediums}</p>
-            <p>{this.props.userBarters}</p>
-            <p>{this.props.userWants}</p>
-            <p>{this.props.userImg}</p>
+            <p>{this.props.user.bio}</p>
+            <p>{this.props.user.location}</p>
+            <p>{this.props.user.email}</p>
+            <p>{this.props.user.mediums}</p>
+            <p>{this.props.user.barters}</p>
+            <p>{this.props.user.wants}</p>
+            <p>{this.props.user.profile_img}</p>
             
             </div>
         )
@@ -23,14 +23,8 @@ class ProfileForm extends Component {
   }
   function mapStateToProps( state ){
       return {
-          displayName: state.displayName,
-          userAbout: state.userAbout,
-          userLocation: state.userLocation,
-          userEmail: state.userEmail,
-          userMediums: state.userMediums,
-          userBarters: state.userBarters,
-          userWants: state.userWants,
-          userImg: state.userImg
+          user: state.user.user,
+          form: state.form
 
       }
   }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { updateUserProfile } from './../../ducks/ProfileCreatorReducer';
+import { getUserUpdate } from './../../ducks/ProfileCreatorReducer';
 
 
 class SubmitBtnHome extends Component {
@@ -12,7 +12,7 @@ class SubmitBtnHome extends Component {
     }
     
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         const { displayName,
             userAbout,
             userLocation,
@@ -26,7 +26,7 @@ class SubmitBtnHome extends Component {
                 <div>
                   
                     <Link to="/">
-                        <button onClick={() => this.props.updateUserProfile(displayName,
+                        <button onClick={() => this.props.getUserUpdate(displayName,
             userAbout,
             userLocation,
             userEmail,
@@ -42,17 +42,17 @@ class SubmitBtnHome extends Component {
 }
 
 function mapStateToProps( state ){
-    console.log(state)
+    console.log(state.user.user)
     return {
         displayName: state.form.displayName,
         userAbout: state.form.userAbout,
         userLocation: state.form.userLocation,
         userEmail: state.form.userEmail,
-        userMediums: state.form.userMedium,
+        userMediums: state.form.userMediums,
         userBarters: state.form.userBarters,
         userWants: state.form.userWants,
         userImg: state.form.userImg
     }
 }
 
-export default connect( mapStateToProps, {updateUserProfile} )(SubmitBtnHome);
+export default connect( mapStateToProps, {getUserUpdate} )(SubmitBtnHome);

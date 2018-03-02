@@ -21,7 +21,7 @@ const UPDATE_USER_MEDIUMS = "UPDATE_USER_MEDIUMS";
 const UPDATE_USER_BARTERS = "UPDATE_USER_BARTERS";
 const UPDATE_USER_WANTS = "UPDATE_USER_WANTS";
 const UPDATE_USER_IMG = "UPDATE_USER_IMG";
-const UPDATE_USER_PROFILE = "UPDATE_USER_PROFILE";
+const GET_USER_UPDATE = "GET_USER_UPDATE";
 
 
 export default function profileReducer( state = initialProfileState, action ) {
@@ -41,6 +41,7 @@ export default function profileReducer( state = initialProfileState, action ) {
         return Object.assign({}, state, { userEmail: action.payload } );
         
         case UPDATE_USER_MEDIUMS:
+        console.log(action.payload, "MEDIUMS")
         return Object.assign({}, state, { userMediums: action.payload } );
         
         case UPDATE_USER_BARTERS:
@@ -52,13 +53,13 @@ export default function profileReducer( state = initialProfileState, action ) {
         case UPDATE_USER_IMG:
         return Object.assign({}, state, { userImg: action.payload} );
 
-        case UPDATE_USER_PROFILE + '_PENDING':
+        case GET_USER_UPDATE + '_PENDING':
         return Object.assign({}, state, { loading: true });
 
-        case UPDATE_USER_PROFILE + '_FULFILLED':
+        case GET_USER_UPDATE + '_FULFILLED':
         return Object.assign({}, state, { loading: false });
 
-        case UPDATE_USER_PROFILE + '_REJECTED':
+        case GET_USER_UPDATE + '_REJECTED':
         return Object.assign({}, state, { loading: false });
         
         default: return state;
@@ -95,6 +96,7 @@ export function getUserEmail(email){
 }
 
 export function getUserMediums(mediums){
+    console.log(mediums, "reduyce meudjxc")
     return {
         type: UPDATE_USER_MEDIUMS,
         payload: mediums
@@ -122,7 +124,7 @@ export function getUserImg(img){
     }
 }
 
-export function updateUserProfile(displayName,
+export function getUserUpdate(displayName,
     userAbout,
     userLocation,
     userEmail,
@@ -130,21 +132,22 @@ export function updateUserProfile(displayName,
     userBarters,
     userWants,
     userImg){
-        // console.log(displayName,
-        //     userAbout,
-        //     userLocation,
-        //     userEmail,
-        //     userMediums,
-        //     userBarters,
-        //     userWants,
-        //     userImg)
-    return{
-        type: UPDATE_USER_PROFILE,
-        payload: axios
-        .post("/api/updateUserProfile", {displayName,
+        console.log(displayName,
             userAbout,
             userLocation,
             userEmail,
+            "HERE IT IS",
+            userMediums,
+            "RIGHT HERE",
+            userBarters,
+            userWants,
+            userImg)
+    return{
+        type: GET_USER_UPDATE,
+        payload: axios
+        .put("/api/getUserUpdate", {displayName,
+            userAbout,
+            userLocation,
             userMediums,
             userBarters,
             userWants,

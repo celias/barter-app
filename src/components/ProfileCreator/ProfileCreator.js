@@ -29,9 +29,9 @@ class ProfileCreator extends Component {
 }
 
 function mapStateToProps(state) {
-    const { displayName, userAbout, userLocation, userEmail, userMediums, userBarters, userWants, userImg } = state.form;
     return {
-        displayName, userAbout, userLocation, userEmail, userMediums, userBarters, userWants, userImg
+        user: state.user.user,
+        form: state.form
     };
 }
 
