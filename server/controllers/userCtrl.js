@@ -17,7 +17,16 @@ const getUserUpdate = (req, res, next) => {
     .catch((err) => {console.log(err); res.status(500).send}
 )}
 
+const getUserImg = (req, res, next) => {
+    console.log(req.body);
+    const db = req.app.get("db")
+    db.updateUserProfile([req.body.userImg])
+    .then(user => res.status(200).send(user)
+    .catch((err) => res.status(500).send)
+)}
+
 module.exports = {
     getUser,
-    getUserUpdate
+    getUserUpdate,
+    getUserImg
 }

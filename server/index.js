@@ -79,6 +79,8 @@ app.get('/api/user', userCtrl.getUser);
 app.get('/api/logout', mainCtrl.logout);
 app.put("/api/getUserUpdate", userCtrl.getUserUpdate);
 
+app.put("/api/getUserImg", userCtrl.getUserImg);
+
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);

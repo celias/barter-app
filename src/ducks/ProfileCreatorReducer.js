@@ -22,10 +22,10 @@ const UPDATE_USER_BARTERS = "UPDATE_USER_BARTERS";
 const UPDATE_USER_WANTS = "UPDATE_USER_WANTS";
 const UPDATE_USER_IMG = "UPDATE_USER_IMG";
 const GET_USER_UPDATE = "GET_USER_UPDATE";
+const GET_USER = "GET_USER";
 
 
 export default function profileReducer( state = initialProfileState, action ) {
-    console.log(action.type)
     switch(action.type){
         case UPDATE_DISPLAY_NAME:
         
@@ -51,7 +51,7 @@ export default function profileReducer( state = initialProfileState, action ) {
         return Object.assign({}, state, { userWants: action.payload } );
 
         case UPDATE_USER_IMG:
-        return Object.assign({}, state, { userImg: action.payload} );
+        return Object.assign({}, state, { userImg: action.payload } );
 
         case GET_USER_UPDATE + '_PENDING':
         return Object.assign({}, state, { loading: true });
@@ -61,6 +61,31 @@ export default function profileReducer( state = initialProfileState, action ) {
 
         case GET_USER_UPDATE + '_REJECTED':
         return Object.assign({}, state, { loading: false });
+
+        case `${GET_USER}_PENDING`:
+           return Object.assign({}, state, { isLoading: true });
+
+        case`${GET_USER}_FULFILLED`: console.log(action.payload)
+           return Object.assign({}, state, {
+               isLoading: false,
+               displayName: action.payload.name,
+               userAbout: action.payload.bio,
+               userLocation: action.payload.location,
+               userEmail: action.payload.email,
+               userMediums: action.payload.mediums,
+               userBarters: action.payload.barters,
+               userWants: action.payload.wants,
+               userImg: action.payload.profile_img
+
+        });
+
+        case `${GET_USER}_REJECTED`:
+          return Object.assign({}, state, {
+              isLoading: false,
+              didErr: true,
+              errMessage: action.payload
+        });
+
         
         default: return state;
     }
@@ -118,9 +143,11 @@ export function getUserWants(want){
 }
 
 export function getUserImg(img){
+    console.log(img, "fucking img")
     return{
         type: UPDATE_USER_IMG,
         payload: img
+        //put
     }
 }
 
@@ -132,16 +159,6 @@ export function getUserUpdate(displayName,
     userBarters,
     userWants,
     userImg){
-        console.log(displayName,
-            userAbout,
-            userLocation,
-            userEmail,
-            "HERE IT IS",
-            userMediums,
-            "RIGHT HERE",
-            userBarters,
-            userWants,
-            userImg)
     return{
         type: GET_USER_UPDATE,
         payload: axios
@@ -154,5 +171,21 @@ export function getUserUpdate(displayName,
             userImg})
         .then(response => response.data)
         .catch(console.log)
+    };
+ }
+
+ export function getUser() {
+    console.log("hit!")
+    return {
+        type: GET_USER,
+        payload: axios
+          .get("/api/user")
+          .then(response => {
+              console.log(response)
+              return response.data[0];
+          })
+          .catch(err => {
+              return err.message;
+          })
     };
  }

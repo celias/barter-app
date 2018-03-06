@@ -34,7 +34,7 @@ import firebase from './../../fire';
       },
       (error) => {},
       (success) => {
-        console.log(uploadTask.snapshot.downloadURL);
+        console.log(uploadTask.snapshot.downloadURL); // make put request
       },
     );
   }

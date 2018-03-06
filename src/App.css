@@ -1,6 +1,5 @@
 .App {
-  text-align: center;
-  background-color: salmon;
+ text-align: center;
 }
 
 /* .App-logo {
@@ -8,7 +7,7 @@
   height: 80px;
 } */
 
-.App-header {
+/* .App-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,19 +15,22 @@
   height: 150px;
   padding: 20px;
   color: black;
-}
+} */
 
 .App-title {
   display: flex;
-  align-items: center;
-  width: 90px;
-  font-size: 1.5em;
-  border: 1px solid black;
+  font-family: 'Cutive Mono', monospace;
+  text-shadow: -1px 1px 5px peachpuff;
+  font-weight: 200;
+  float: center;
+  line-height: 65%;
+  margin-left: 40px;
+  margin-top: 50px;
+  font-size: 35px;
+
 }
 
-.App-intro {
-  font-size: large;
-}
+
 
 /* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

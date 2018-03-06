@@ -42,7 +42,7 @@ class SubmitBtnHome extends Component {
 }
 
 function mapStateToProps( state ){
-    console.log(state.user.user)
+    console.log(state.user)
     return {
         displayName: state.form.displayName,
         userAbout: state.form.userAbout,
