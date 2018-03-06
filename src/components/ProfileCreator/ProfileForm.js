@@ -16,7 +16,7 @@ class ProfileForm extends Component {
                     <p>{this.props.userMediums}</p>
                     <p>{this.props.userBarters}</p>
                     <p>{this.props.userWants}</p>
-                    <p>{this.props.userImg}</p> 
+                    <img src={this.props.userImg} /> 
             
             </div>
         )
