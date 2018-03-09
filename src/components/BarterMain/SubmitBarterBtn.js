@@ -8,11 +8,10 @@ import { getUserBarter } from './../../ducks/ProfileCreatorReducer';
 
 
 class SubmitBarterBtn extends Component {
-
     constructor(){
-        super();
+       super();
+ }
 
-    }
 
     render() {
         console.log(this.props)
@@ -24,7 +23,7 @@ class SubmitBarterBtn extends Component {
 
       return(
           <div>
-              <Link to="/barter">
+              <Link to="/marketplace"> 
                 <button onClick={() => this.props.getUserBarter(barterInfo, 
                 barterName, 
                 userId, 

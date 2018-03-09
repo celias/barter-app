@@ -17,22 +17,22 @@ class Header extends Component {
       <a href="javascript:void(0)" className="dropbtn">MENU</a>
       <div className="dropdown-content">
         <Link to="/">
-          <a className="active" href="#home">Home</a>
+          <a className="active">Home</a>
         </Link>
 
         <Link to="/profilecreator">
-          <a href="#profilecreator">Update Profile</a>
+          <a>Update Profile</a>
         </Link>
       
         <Link to="/profileform">
-          <a href="#profileform">My profile</a>
+          <a>Profile</a>
         </Link>
         <Link to="/barter">
-        <a href="#barterpage">Post Barter</a>
+        <a>Barter Something</a>
         </Link>
 
-        <Link to="/barterdisplay">
-        <a href="#userbarters">All Barters</a>
+        <Link to="/marketplace">
+        <a>Browse Barters</a>
         </Link>
       </div>
       </li>
@@ -43,20 +43,3 @@ class Header extends Component {
 }
 
 export default Header;
-
-
-{/* <ul>
-  <li><a href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </li>
-</ul>
-
-<h3>Dropdown Menu inside a Navigation Bar</h3>
-<p>Hover over the "Dropdown" link to see the dropdown menu.</p> */}

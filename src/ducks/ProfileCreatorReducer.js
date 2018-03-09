@@ -15,7 +15,9 @@ const initialProfileState = {
     barterName: '',
     userId: '',
     itemId: '',
-    barterImg: ''
+    barterImg: '',
+    
+    barterData: []
 }
 
 // CONSTANTS
@@ -100,6 +102,27 @@ export default function profileReducer( state = initialProfileState, action ) {
               errMessage: action.payload
         });
 
+
+
+        case `${GET_BARTER_DATA}_PENDING`:
+        return Object.assign({}, state, { isLoading: true });
+
+        case `${GET_BARTER_DATA}_FULFILLED`:
+        return Object.assign({}, state, { 
+            loading: false,
+            barterData: action.payload
+        });
+
+        case `${GET_BARTER_DATA}_REJECTED`:
+        return Object.assign({}, state, {
+            isLoading: false,
+            didErr: true,
+            errMessage: action.payload
+      });
+
+
+
+
         case GET_BARTER_INFO:
         return Object.assign({}, state, { barterInfo: action.payload } );
 
@@ -150,7 +173,7 @@ export function getUserEmail(email){
 }
 
 export function getUserMediums(mediums){
-    console.log(mediums, "reduyce meudjxc")
+    console.log(mediums, "MEDIUMSSS")
     return {
         type: UPDATE_USER_MEDIUMS,
         payload: mediums
@@ -173,7 +196,7 @@ export function getUserWants(want){
 }
 
 export function getUserImg(img){
-    console.log(img, "fucking img")
+    console.log(img, "img")
     return{
         type: UPDATE_USER_IMG,
         payload: img
@@ -255,13 +278,14 @@ export function getUserUpdate(displayName,
  }
 
 export function getBarterData(){
+    console.log("fired barter datsa")
     return {
         type: GET_BARTER_DATA,
         payload: axios
           .get("/api/getBarterData")
           .then(response => {
-            console.log(response)
-            return response.data[0];
+            console.log(response, "this is crap")
+            return response.data;
         })
         .catch(err => {
             return err.message;

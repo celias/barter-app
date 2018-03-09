@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+// import { getBarterData } from './../../ducks/ProfileCreatorReducer';
 
 
 
 class BarterDisplay extends Component {
+  
     render(){
-        console.log(this.props, "RIOGHITHIOESRH");
+        console.log(this.props);
+
         return(
             <div>
                 <img src={this.props.form.barterImg} />
