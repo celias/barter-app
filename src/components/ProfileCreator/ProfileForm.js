@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
+
 class ProfileForm extends Component {
     render(){
         console.log(this.props);
@@ -14,9 +15,10 @@ class ProfileForm extends Component {
                     <p>{this.props.userLocation}</p>
                     <p>{this.props.userEmail}</p>
                     <p>{this.props.userMediums}</p>
-                    <p>{this.props.userBarters}</p>
                     <p>{this.props.userWants}</p>
                     <img src={this.props.userImg} /> 
+                    
+                    
             
             </div>
         )

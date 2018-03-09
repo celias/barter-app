@@ -81,6 +81,9 @@ app.put("/api/getUserUpdate", userCtrl.getUserUpdate);
 
 app.put("/api/getUserImg", userCtrl.getUserImg);
 
+app.get("/api/getBarterData", userCtrl.getBarterData);
+app.post("/api/getUserBarter", userCtrl.getUserBarter);
+
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);

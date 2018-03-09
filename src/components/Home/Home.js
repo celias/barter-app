@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { getUser } from './../../ducks/UserReducer';
-// import { reducer } from './../../ducks/reducer'; // DO I NEED THIS?
 
+import './Home.css';
 
 
 class Home extends Component{
@@ -13,7 +13,7 @@ class Home extends Component{
     render() {
      return (
        <div>
-         <a href={process.env.REACT_APP_LOGIN}><button>LOGIN/REGISTER</button></a>
+         <a className="login" href={process.env.REACT_APP_LOGIN}><button>LOGIN/REGISTER</button></a>
 
         {this.props.user ? (
         <div>

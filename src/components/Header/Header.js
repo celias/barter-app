@@ -28,7 +28,11 @@ class Header extends Component {
           <a href="#profileform">My profile</a>
         </Link>
         <Link to="/barter">
-        <a href="#barterpage">Barter</a>
+        <a href="#barterpage">Post Barter</a>
+        </Link>
+
+        <Link to="/barterdisplay">
+        <a href="#userbarters">All Barters</a>
         </Link>
       </div>
       </li>

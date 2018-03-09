@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getUserUpdate } from './../../ducks/ProfileCreatorReducer';
 
 
+
 class SubmitBtnHome extends Component {
     constructor(){
         super();
@@ -55,4 +56,4 @@ function mapStateToProps( state ){
     }
 }
 
-export default connect( mapStateToProps, {getUserUpdate} )(SubmitBtnHome);
+export default connect( mapStateToProps, { getUserUpdate } )(SubmitBtnHome);

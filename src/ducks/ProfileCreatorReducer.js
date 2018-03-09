@@ -7,9 +7,15 @@ const initialProfileState = {
     userLocation: '',
     userEmail: '',
     userMediums: '',
-    userBarters: '',
+    userBarters: '', // this is useless - leave it alone!
     userWants: '',
-    userImg: ''
+    userImg: '',
+    
+    barterInfo: '', // NOT USELESS
+    barterName: '',
+    userId: '',
+    itemId: '',
+    barterImg: ''
 }
 
 // CONSTANTS
@@ -18,11 +24,19 @@ const UPDATE_USER_ABOUT = "UPDATE_USER_ABOUT";
 const UPDATE_USER_LOCATION = "UPDATE_USER_LOCATION";
 const UPDATE_USER_EMAIL = "UPDATE_USER_EMAIL";
 const UPDATE_USER_MEDIUMS = "UPDATE_USER_MEDIUMS";
-const UPDATE_USER_BARTERS = "UPDATE_USER_BARTERS";
+const UPDATE_USER_BARTERS = "UPDATE_USER_BARTERS"; // this is also useless but leave it alone!
 const UPDATE_USER_WANTS = "UPDATE_USER_WANTS";
 const UPDATE_USER_IMG = "UPDATE_USER_IMG";
 const GET_USER_UPDATE = "GET_USER_UPDATE";
 const GET_USER = "GET_USER";
+
+const GET_BARTER_INFO = "GET_BARTER_INFO";
+const GET_BARTER_NAME = "GET_BARTER_NAME";
+const GET_USER_ID = "GET_USER_ID";
+const GET_ITEM_ID = "GET_ITEM_ID";
+const GET_BARTER_IMG = "GET_BARTER_IMG";
+const GET_BARTER_DATA = "GET_BARTER_DATA";
+const GET_USER_BARTER = "GET_USER_BARTER";
 
 
 export default function profileReducer( state = initialProfileState, action ) {
@@ -45,7 +59,7 @@ export default function profileReducer( state = initialProfileState, action ) {
         return Object.assign({}, state, { userMediums: action.payload } );
         
         case UPDATE_USER_BARTERS:
-        return Object.assign({}, state, { userBarters: action.payload } );
+        return Object.assign({}, state, { userBarters: action.payload } ); // useless!!!!!!
         
         case UPDATE_USER_WANTS:
         return Object.assign({}, state, { userWants: action.payload } );
@@ -85,6 +99,21 @@ export default function profileReducer( state = initialProfileState, action ) {
               didErr: true,
               errMessage: action.payload
         });
+
+        case GET_BARTER_INFO:
+        return Object.assign({}, state, { barterInfo: action.payload } );
+
+        case GET_BARTER_NAME:
+        return Object.assign({}, state, { barterName: action.payload } );
+
+        case GET_USER_ID:
+        return Object.assign({}, state, { userId: action.payload });
+
+        case GET_ITEM_ID:
+        return Object.assign({}, state, { itemId: action.payload });
+
+        case GET_BARTER_IMG:
+        return Object.assign({}, state, { barterImg: action.payload } );
 
         
         default: return state;
@@ -128,7 +157,8 @@ export function getUserMediums(mediums){
     }
 }
 
-export function getUserBarters(barter){
+export function getUserBarters(barter){ // useless!!!
+    console.log(barter, "ARRRGHHH A BARTER!")
     return {
         type: UPDATE_USER_BARTERS,
         payload: barter
@@ -147,7 +177,6 @@ export function getUserImg(img){
     return{
         type: UPDATE_USER_IMG,
         payload: img
-        //put
     }
 }
 
@@ -156,7 +185,7 @@ export function getUserUpdate(displayName,
     userLocation,
     userEmail,
     userMediums,
-    userBarters,
+    userBarters, // useless
     userWants,
     userImg){
     return{
@@ -166,7 +195,7 @@ export function getUserUpdate(displayName,
             userAbout,
             userLocation,
             userMediums,
-            userBarters,
+            userBarters, // useless
             userWants,
             userImg})
         .then(response => response.data)
@@ -189,3 +218,69 @@ export function getUserUpdate(displayName,
           })
     };
  }
+
+ export function getBarterInfo(info){
+    return {
+        type: GET_BARTER_INFO,
+        payload: info
+    }
+ }
+
+ export function getBarterName(name){
+     return {
+         type: GET_BARTER_NAME,
+         payload: name
+     }
+ }
+
+ export function getUserId(userid){
+     return {
+         type: GET_USER_ID,
+         payload: userid
+     }
+ }
+
+ export function getItemId(itemid){
+     return {
+         type: GET_ITEM_ID,
+         payload: itemid
+     }
+ }
+
+ export function getBarterImg(img){
+     return {
+         type: GET_BARTER_IMG,
+         payload: img
+     }
+ }
+
+export function getBarterData(){
+    return {
+        type: GET_BARTER_DATA,
+        payload: axios
+          .get("/api/getBarterData")
+          .then(response => {
+            console.log(response)
+            return response.data[0];
+        })
+        .catch(err => {
+            return err.message;
+        })
+  };
+}
+
+export function getUserBarter(barterInfo, barterName, userId, itemId, barterImg){
+    console.log("fired, yeppper s ", barterInfo, barterName, userId, itemId, barterImg)
+    return {
+        type: GET_USER_BARTER,
+        payload: axios
+          .post("/api/getUserBarter", { barterInfo, barterName, userId, itemId, barterImg })
+          .then(response => {
+            console.log(response)
+            return response.data[0];
+          })
+          .catch(err => {
+              return err.message
+          })
+    }
+}
