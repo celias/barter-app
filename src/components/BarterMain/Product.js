@@ -6,9 +6,6 @@ import axios from 'axios';
 
 
 
-
-
-
 class Product extends Component {
     constructor() {
         super();

@@ -20,6 +20,7 @@ ul {
     overflow: hidden;
     background-color:whitesmoke;
     transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    
 }
 
 Link {
@@ -40,6 +41,8 @@ Link a:hover, .dropdown:hover .dropbtn {
 
 li.dropdown {
     display: inline-block;
+    
+    margin-left: 1800px;
 }
 
 .dropdown-content {

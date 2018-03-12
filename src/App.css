@@ -21,19 +21,24 @@
 
 .App-title {
   display: flex;
-  font-family: 'Cutive Mono', monospace;
+  font-family: 'Pattaya', sans-serif;
   text-shadow: -1px 1px rgba(244, 165, 96, 0.52);
   font-weight: 550;
   float: center;
   line-height: 65%;
-  margin-left: 40px;
+  margin-left: 70px;
   margin-top: 50px;
   font-size: 45px;
+  position: fixed;
 }
 .Vary-font {
-  font-family: 'Nanum Gothic', sans-serif;
-  font-size: 30px;
+  font-family: 'Pacifico', cursive;
+  font-size: 45px;
   text-shadow: 1px 2px 3px salmon;
+}
+
+.Product{
+  margin-top: 100px;
 }
 
 

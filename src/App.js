@@ -19,7 +19,7 @@ class App extends Component {
     
     return (
       <div className="App">
-          <h1 className="App-title">b(<span className="Vary-font">art</span>)er</h1>
+          <h1 className="App-title">b<span className="Vary-font">{`{art}`}</span>er</h1>
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           
@@ -29,10 +29,10 @@ class App extends Component {
        
       </header>
         
+
+        <p className="Product">
+
         { routes }
-
-        <p className="App-intro">
-
        
         
 
