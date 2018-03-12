@@ -35,6 +35,7 @@ class Product extends Component {
                    <h1>PRODUCT</h1>
                    <img src={this.state.productData[0].img} />
                    <h1>{this.state.productData[0].description}</h1>
+                   <h1>{this.state.productData[0].product_name}</h1>
                    </div>
            )
         })

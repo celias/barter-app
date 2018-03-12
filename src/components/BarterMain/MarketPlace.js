@@ -20,8 +20,8 @@ class MarketPlace extends Component {
     return (
         <div key={i}>
             <Link to={`/product/${curr.product_id}`}><img src={curr.img} /></Link>
-            <p>{curr.name}</p>
-            <p>{curr.barterName}</p>
+            <p>{curr.product_name}</p>
+            
             <p>{curr.description}</p>
         </div>
 
