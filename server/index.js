@@ -82,6 +82,7 @@ app.put("/api/getUserUpdate", userCtrl.getUserUpdate);
 app.put("/api/getUserImg", userCtrl.getUserImg);
 
 app.get("/api/getBarterData", userCtrl.getBarterData);
+app.get("/api/getProductData/:id", userCtrl.getProductData);
 app.post("/api/getUserBarter", userCtrl.getUserBarter);
 
 

@@ -16,10 +16,10 @@ class MarketPlace extends Component {
     render(){
     console.log(this.props)
     let newBarterData = this.props.form.barterData.length > 0 && this.props.form.barterData.map((curr, i) => {
+        console.log(curr, "IS IT OVER YET")
     return (
-        // console.log(this.props.barterData, "IS IT OVER YET")
         <div key={i}>
-            <img src={curr.img} />
+            <Link to={`/product/${curr.product_id}`}><img src={curr.img} /></Link>
             <p>{curr.name}</p>
             <p>{curr.barterName}</p>
             <p>{curr.description}</p>

@@ -53,6 +53,13 @@ const getBarterData = (req, res, next) => {
     .catch((err) => {console.log(err); res.status(500).send}
 )}
 
+const getProductData = (req, res, next) => {
+    const db = req.app.get("db")
+    db.getProductInfo([req.params.id])
+    .then(user => {console.log(user); res.status(200).send(user)})
+    .catch((err) => {console.log(err); res.status(500).send}
+)}
+
 // the join will be a getrequest too
 
 module.exports = {
@@ -60,5 +67,6 @@ module.exports = {
     getUserUpdate,
     getUserImg,
     getBarterData,
-    getUserBarter
+    getUserBarter,
+    getProductData
 }

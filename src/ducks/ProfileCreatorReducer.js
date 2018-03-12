@@ -18,6 +18,7 @@ const initialProfileState = {
     barterImg: '',
     
     barterData: []
+    // productData: {}
 }
 
 // CONSTANTS
@@ -39,6 +40,7 @@ const GET_ITEM_ID = "GET_ITEM_ID";
 const GET_BARTER_IMG = "GET_BARTER_IMG";
 const GET_BARTER_DATA = "GET_BARTER_DATA";
 const GET_USER_BARTER = "GET_USER_BARTER";
+// const GET_PRODUCT_DATA = "GET_PRODUCT_DATA";
 
 
 export default function profileReducer( state = initialProfileState, action ) {
@@ -119,6 +121,26 @@ export default function profileReducer( state = initialProfileState, action ) {
             didErr: true,
             errMessage: action.payload
       });
+
+
+      
+    //   case `${GET_PRODUCT_DATA}_PENDING`:
+    //   return Object.assign({}, state, { isLoading: true });
+
+    //   case `${GET_PRODUCT_DATA}_FULFILLED`:
+    //     return Object.assign({}, state, { 
+    //         loading: false,
+    //         productData: action.payload
+    //     });
+
+    //   case `${GET_PRODUCT_DATA}_REJECTED`:
+    //     return Object.assign({}, state, {
+    //         isLoading: false,
+    //         didErr: true,
+    //         errMessage: action.payload
+    //   });
+
+
 
 
 
@@ -308,3 +330,19 @@ export function getUserBarter(barterInfo, barterName, userId, itemId, barterImg)
           })
     }
 }
+
+// export function getProductData(id){
+//     console.log("fired product data")
+//     return {
+//         type: GET_BARTER_DATA,
+//         payload: axios
+//           .get("/api/getBarterData")
+//           .then(response => {
+//             console.log(response, "this is prod")
+//             return response.data;
+//         })
+//         .catch(err => {
+//             return err.message;
+//         })
+//   };
+// }
