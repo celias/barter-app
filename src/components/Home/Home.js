@@ -19,9 +19,9 @@ class Home extends Component{
        </div>
          <div className="loginContainer">
 
-       <h3>WELCOME</h3>
        
-         <a href={process.env.REACT_APP_LOGIN}><button>LOGIN or REGISTER</button></a>
+       
+         <a href={process.env.REACT_APP_LOGIN}><button className="loginBtn">LOGIN or REGISTER</button></a>
         
         {this.props.user ? (
         <div>
