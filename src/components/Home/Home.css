@@ -13,7 +13,10 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 200;
+    font-size: 15px;
   }
 
   .container {
@@ -26,7 +29,7 @@
 
   h1 {
     font-family: 'Pattaya', sans-serif;
-    font-size: 95px;
+    font-size: 120px;
     color: white;
     text-shadow: -1px 1px 2px bisque;
     margin-top: 300px;
@@ -37,7 +40,7 @@
     font-family: 'Pacifico', cursive;
     color: white;
     opacity: 50%;
-    font-size: 95px;
+    font-size: 120px;
     text-shadow: 1px 2px 3px rgb(211, 236, 227, 148);
     
   }
@@ -51,10 +54,11 @@
     align-items: center;
     display: inline-block;
     padding: 5px;
-    margin-left: 135px;
+    margin-left: 125px;
     margin-top: 2%;
 
-    font-size: 15px;
+    font-size: 1.1em;
+    font-weight: 850;
     flex-basis: 50vh;
     max-width: 50vh;
     height: 7vh;
