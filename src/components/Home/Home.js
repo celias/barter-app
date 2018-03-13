@@ -4,7 +4,8 @@ import { withRouter } from "react-router-dom";
 
 import { getUser } from './../../ducks/UserReducer';
 
-import { LoginBtn, Pre } from './stylesHome';
+
+import './Home.css';
 
 
 class Home extends Component{
@@ -12,11 +13,15 @@ class Home extends Component{
  
     render() {
      return (
-       <div className="loginLanding">
+       <div className="homeContainer">
+       <div className="container">
+       <h1>b<span>{`{art}`}</span>er</h1>
+       </div>
+         <div className="loginContainer">
 
        <h3>Start Here.</h3>
        
-         <a className="login" href={process.env.REACT_APP_LOGIN}><LoginBtn>LOGIN or REGISTER</LoginBtn></a>
+         <a href={process.env.REACT_APP_LOGIN}><button>LOGIN or REGISTER</button></a>
         
         {this.props.user ? (
         <div>
@@ -26,6 +31,7 @@ class Home extends Component{
      ) : (
          <h1>{this.props.errMessage}</h1>
      )}
+     </div>
      </div>
     );
   }

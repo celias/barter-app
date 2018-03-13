@@ -4,6 +4,8 @@ import { getDisplayName, getUserAbout, getUserLocation, getUserEmail, getUserMed
 import SubmitBtnHome from './../SubmitBtn/SubmitBtnHome';
 import ProfileImg from './ProfileImg';
 
+import '../../App.css';
+
 
 class ProfileCreator extends Component {
     render(){

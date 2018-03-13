@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-
-// import './App.css';
-import './Header.css';
 
 import { Link } from 'react-router-dom';
+import '../../App.css';
 
 
 class Header extends Component {
@@ -15,11 +12,10 @@ class Header extends Component {
     return (
     <div>
       <ul> 
-    <li className="dropdown">
-      <a href="javascript:void(0)" className="dropbtn">MENU</a>
-      <div className="dropdown-content">
+    
+    <li className="navbar">
         <Link to="/">
-          <a className="active">Home</a>
+          <a>Home</a>
         </Link>
 
         <Link to="/profilecreator">
@@ -36,7 +32,7 @@ class Header extends Component {
         <Link to="/marketplace">
         <a>Browse Barters</a>
         </Link>
-      </div>
+      
       </li>
     </ul> 
   </div>
