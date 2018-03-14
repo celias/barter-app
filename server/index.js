@@ -8,8 +8,12 @@ const massive = require("massive");
 const Auth0Strategy = require('passport-auth0');
 const path = require("path");
 
+
+const checkForSession = require('./middlewares/checkForSession');
+
 const mainCtrl = require('./controllers/mainCtrl');
 const userCtrl = require('./controllers/userCtrl');
+const shopCtrl = require('./controllers/shopCtrl');
 
 const port = 3001;
 
@@ -39,10 +43,12 @@ app.use(
         resave: false,
         saveUninitialized: false, 
         cookie: {
-            maxAge: 100000
+            maxAge: 1000000
         }
     })
 );
+
+app.use( checkForSession );
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -84,6 +90,14 @@ app.put("/api/getUserImg", userCtrl.getUserImg);
 app.get("/api/getBarterData", userCtrl.getBarterData);
 app.get("/api/getProductData/:id", userCtrl.getProductData);
 app.post("/api/getUserBarter", userCtrl.getUserBarter);
+
+
+
+// CART
+// app.get("/api/getCartData", shopCtrl.getCartData);
+app.post("/api/cart", shopCtrl.addToCart);
+app.post("/api/cart/checkout", shopCtrl.checkout);
+app.delete("/api/cart", shopCtrl.removeFromCart);
 
 
 app.listen(port, () => {

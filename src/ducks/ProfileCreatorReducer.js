@@ -17,8 +17,12 @@ const initialProfileState = {
     itemId: '',
     barterImg: '',
     
-    barterData: []
+    barterData: [],
     // productData: {}
+
+    product: [],
+    cart: []
+
 }
 
 // CONSTANTS
@@ -45,6 +49,10 @@ const GET_BARTER_DATA = "GET_BARTER_DATA";
 const GET_USER_BARTER = "GET_USER_BARTER";
 // const GET_PRODUCT_DATA = "GET_PRODUCT_DATA";
 // const GET_USER_PURCHASE = "GET_USER_PURCHASE";
+
+const ADD_TO_CART = "ADD_TO_CART";
+const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+const CHECKOUT = "CHECKOUT";
 
 
 export default function profileReducer( state = initialProfileState, action ) {
@@ -143,6 +151,16 @@ export default function profileReducer( state = initialProfileState, action ) {
             didErr: true,
             errMessage: action.payload
         });
+
+        case ADD_TO_CART + '_FULFILLED':
+        return Object.assign({}, state, { cart: action.payload });
+
+        case REMOVE_FROM_CART + '_FULFILLED':
+        return Object.assign({}, state, { cart: action.payload });
+
+        case CHECKOUT + '_FULFILLED':
+        return Object.assign({}, state, { cart: action.payload });
+
 
 
         // case `${GET_USER_PURCHASE}_PENDING`:
@@ -369,6 +387,28 @@ export function getUserBarter(barterInfo, barterName, userId, itemId, barterImg)
           })
     }
 }
+
+export function addToCart( item ){
+    return{
+        type: ADD_TO_CART,
+        payload: axios.post("/api/cart", item )
+        .then( response => response.data )
+    }
+}
+
+export function removeFromCart( product_id ) {
+    return {
+      type: REMOVE_FROM_CART,
+      payload: axios.delete("/api/cart", {} ).then( response => response.data )
+    };
+  }
+
+  export function checkout() {
+    return {
+      type: CHECKOUT,
+      payload: axios.post("/api/cart/checkout", URL.checkout ).then( response => response.data )
+    };
+  }
 
 // export function getProductData(id){
 //     console.log("fired product data")

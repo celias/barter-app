@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 
 import axios from 'axios';
 
 import './Product.css';
+
+import { addToCart } from '../../ducks/ProfileCreatorReducer';
 
 class Product extends Component {
     constructor() {
@@ -33,10 +37,12 @@ class Product extends Component {
                    
                    <img src={this.state.productData[0].img} />
                    <p className="monospace">User: {this.state.productData[0].nick_name}</p>
-                   <img className="profilePic" src={this.state.productData[0].img} />
+                   <img className="profilePic" src={this.state.productData[0].profile_img} />
                    <p className="monospace">Item for barter: {this.state.productData[0].product_name}</p>
                    <p className="monospace">Barter description: {this.state.productData[0].description}</p>
                    <p className="monospace">Will trade for: {this.state.productData[0].wants}</p>
+                   
+                   <button onClick={() => this.props.addToCart( this.state.productData[0] )}>Add to cart</button>
                    </div>
                    </div>
            )
@@ -47,11 +53,15 @@ class Product extends Component {
                 {newProductData}
             </div>
         )
-
-     
-
-
     }
-
 }
-export default Product;
+
+function mapStateToProps(state){
+    return{
+        state
+    }
+}
+    
+
+
+export default connect( mapStateToProps, { addToCart } )(Product)
