@@ -32,6 +32,10 @@ class Header extends Component {
         <Link to="/marketplace">
         <a>Browse Barters</a>
         </Link>
+
+        <Link to="/cart">
+        <a>Cart</a>
+        </Link>
       
       </li>
     </ul> 

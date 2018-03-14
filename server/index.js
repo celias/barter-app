@@ -94,7 +94,8 @@ app.post("/api/getUserBarter", userCtrl.getUserBarter);
 
 
 // CART
-// app.get("/api/getCartData", shopCtrl.getCartData);
+app.get("/api/getCartData", shopCtrl.getCartData);
+
 app.post("/api/cart", shopCtrl.addToCart);
 app.post("/api/cart/checkout", shopCtrl.checkout);
 app.delete("/api/cart", shopCtrl.removeFromCart);

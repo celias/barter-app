@@ -8,6 +8,7 @@ import BarterCreator from "./components/BarterMain/BarterCreator";
 import ProfileForm from "./components/ProfileCreator/ProfileForm";
 import MarketPlace from "./components/BarterMain/MarketPlace";
 import Product from "./components/BarterMain/Product";
+import Cart from './components/BarterMain/Cart';
 
 
 export default (
@@ -20,6 +21,7 @@ export default (
 
       <Route path="/marketplace" component={MarketPlace} />
       <Route path="/product/:id" component={Product} />
+      <Route path="/cart" component={Cart} />
     
       
       

@@ -18,9 +18,10 @@ const initialProfileState = {
     barterImg: '',
     
     barterData: [],
+    cartData: [],
     // productData: {}
 
-    product: [],
+    
     cart: []
 
 }
@@ -51,6 +52,8 @@ const GET_USER_BARTER = "GET_USER_BARTER";
 // const GET_USER_PURCHASE = "GET_USER_PURCHASE";
 
 const ADD_TO_CART = "ADD_TO_CART";
+const GET_CART_DATA = "GET_CART_DATA";
+
 const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 const CHECKOUT = "CHECKOUT";
 
@@ -146,6 +149,22 @@ export default function profileReducer( state = initialProfileState, action ) {
         });
 
         case `${GET_BARTER_DATA}_REJECTED`:
+        return Object.assign({}, state, {
+            isLoading: false,
+            didErr: true,
+            errMessage: action.payload
+        });
+
+        case `${GET_CART_DATA}_PENDING`:
+        return Object.assign({}, state, {isLoading: true } );
+
+        case `${GET_CART_DATA}_FULFILLED`:
+        return Object.assign({}, state, { 
+            loading: false,
+            cartData: action.payload
+        });
+
+        case `${GET_CART_DATA}_REJECTED`:
         return Object.assign({}, state, {
             isLoading: false,
             didErr: true,
@@ -392,6 +411,14 @@ export function addToCart( item ){
     return{
         type: ADD_TO_CART,
         payload: axios.post("/api/cart", item )
+        .then( response => response.data )
+    }
+}
+
+export function getCartData( item ){
+    return{
+        type: GET_CART_DATA,
+        payload: axios.get("/api/getCartData", item )
         .then( response => response.data )
     }
 }
