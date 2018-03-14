@@ -42,7 +42,7 @@ class Product extends Component {
                    <p className="monospace">Barter description: {this.state.productData[0].description}</p>
                    <p className="monospace">Will trade for: {this.state.productData[0].wants}</p>
                    
-                   <button onClick={() => this.props.addToCart( this.state.productData[0] )}>Add to cart</button>
+                   <button onClick={() => this.props.addToCart(this.state.productData[0] ).then(this.props.history.push('/cart'))}>Add to cart</button>
                    </div>
                    </div>
            )
