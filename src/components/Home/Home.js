@@ -25,11 +25,11 @@ class Home extends Component{
         
         {this.props.user ? (
         <div>
-         <h1>{this.props.user.authid}</h1>
-         <h1>{this.props.user.name}</h1>
+         <h1 className="no">{this.props.user.authid}</h1>
+         <h1 className="no">{this.props.user.name}</h1>
         </div>
      ) : (
-         <h1>{this.props.errMessage}</h1>
+         <h1 className="no">{this.props.errMessage}</h1>
      )}
      </div>
      </div>

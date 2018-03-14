@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
-import '../../App.css';
-
+// import '../../App.css';
+import '../Home/Home.css'
 
 class Header extends Component {
 
@@ -11,9 +11,9 @@ class Header extends Component {
 
     return (
     <div>
-      <ul> 
+      <ul className="navbar" > 
     
-    <li className="navbar">
+    <li className="navbar" style={{ listStyleType: 'none', whiteSpace: 'nowrap'}}>
         <Link to="/">
           <a>Home</a>
         </Link>

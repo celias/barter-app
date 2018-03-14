@@ -1,0 +1,10 @@
+.formContainer{
+    font-family: monospace;
+    font-size: 2em;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: flex-start;
+}

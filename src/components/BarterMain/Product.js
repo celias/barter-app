@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 
-
+import './Product.css';
 
 class Product extends Component {
     constructor() {
@@ -29,10 +29,15 @@ class Product extends Component {
            console.log(this.state, "STATE HERE")
            return(
                <div key={i}>
-                   <h1>PRODUCT</h1>
+                   <div className="productContainer">
+                   
                    <img src={this.state.productData[0].img} />
-                   <h1>{this.state.productData[0].description}</h1>
-                   <h1>{this.state.productData[0].product_name}</h1>
+                   <p className="monospace">User: {this.state.productData[0].nick_name}</p>
+                   <img className="profilePic" src={this.state.productData[0].img} />
+                   <p className="monospace">Item for barter: {this.state.productData[0].product_name}</p>
+                   <p className="monospace">Barter description: {this.state.productData[0].description}</p>
+                   <p className="monospace">Will trade for: {this.state.productData[0].wants}</p>
+                   </div>
                    </div>
            )
         })

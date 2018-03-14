@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { getBarterData } from './../../ducks/ProfileCreatorReducer';
 import axios from 'axios';
 
+import './MarketPlace.css';
+
 
 
 class MarketPlace extends Component {
@@ -18,11 +20,13 @@ class MarketPlace extends Component {
     let newBarterData = this.props.form.barterData.length > 0 && this.props.form.barterData.map((curr, i) => {
         console.log(curr, "IS IT OVER YET")
     return (
+        <div className="barterContainer">
         <div key={i}>
             <Link to={`/product/${curr.product_id}`}><img src={curr.img} /></Link>
             <p>{curr.product_name}</p>
             
             <p>{curr.description}</p>
+            </div>
         </div>
 
     )

@@ -4,7 +4,7 @@ import { getDisplayName, getUserAbout, getUserLocation, getUserEmail, getUserMed
 import SubmitBtnHome from './../SubmitBtn/SubmitBtnHome';
 import ProfileImg from './ProfileImg';
 
-import '../../App.css';
+import './ProfileCreator.css';
 
 
 class ProfileCreator extends Component {
@@ -13,7 +13,7 @@ class ProfileCreator extends Component {
         const { getDisplayName, getUserAbout, getUserLocation, getUserEmail, getUserMediums, getUserBarters, getUserWants, getUserImg } = this.props;
         return (
             <div className="formContainer">
-                <h1>Enter your profile information here...</h1>
+                
                 <ProfileImg />
                 <input type="text" placeholder="name" onChange={ ( e ) => getDisplayName( e.target.value ) } />
                 <input type="text" placeholder="about you" onChange={ ( e ) => getUserAbout( e.target.value ) } />

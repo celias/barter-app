@@ -1,0 +1,22 @@
+.productContainer {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    font-family: monospace;
+    color: black;
+}
+
+.profilePic{
+	width: 70px;
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+	/* margin-right: 50%; */
+}

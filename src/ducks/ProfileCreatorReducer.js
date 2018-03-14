@@ -28,10 +28,13 @@ const UPDATE_USER_LOCATION = "UPDATE_USER_LOCATION";
 const UPDATE_USER_EMAIL = "UPDATE_USER_EMAIL";
 const UPDATE_USER_MEDIUMS = "UPDATE_USER_MEDIUMS";
 const UPDATE_USER_BARTERS = "UPDATE_USER_BARTERS"; // this is also useless but leave it alone!
-const UPDATE_USER_WANTS = "UPDATE_USER_WANTS";
+
+const UPDATE_USER_WANTS = "UPDATE_USER_WANTS"; // CONFIRMING THE USER PURCHASE/BARTER
+
 const UPDATE_USER_IMG = "UPDATE_USER_IMG";
 const GET_USER_UPDATE = "GET_USER_UPDATE";
 const GET_USER = "GET_USER";
+
 
 const GET_BARTER_INFO = "GET_BARTER_INFO";
 const GET_BARTER_NAME = "GET_BARTER_NAME";
@@ -41,6 +44,7 @@ const GET_BARTER_IMG = "GET_BARTER_IMG";
 const GET_BARTER_DATA = "GET_BARTER_DATA";
 const GET_USER_BARTER = "GET_USER_BARTER";
 // const GET_PRODUCT_DATA = "GET_PRODUCT_DATA";
+// const GET_USER_PURCHASE = "GET_USER_PURCHASE";
 
 
 export default function profileReducer( state = initialProfileState, action ) {
@@ -65,8 +69,26 @@ export default function profileReducer( state = initialProfileState, action ) {
         case UPDATE_USER_BARTERS:
         return Object.assign({}, state, { userBarters: action.payload } ); // useless!!!!!!
         
-        case UPDATE_USER_WANTS:
-        return Object.assign({}, state, { userWants: action.payload } );
+      
+
+        
+        case `${UPDATE_USER_WANTS}_PENDING`:
+        return Object.assign({}, state, { isLoading: true });
+
+        case `${UPDATE_USER_WANTS}_FULFILLED`:
+        return Object.assign({}, state, { 
+            loading: false,
+            barterData: action.payload
+        });
+
+        case `${UPDATE_USER_WANTS}_REJECTED`:
+        return Object.assign({}, state, {
+            isLoading: false,
+            didErr: true,
+            errMessage: action.payload
+        });
+
+
 
         case UPDATE_USER_IMG:
         return Object.assign({}, state, { userImg: action.payload } );
@@ -120,7 +142,24 @@ export default function profileReducer( state = initialProfileState, action ) {
             isLoading: false,
             didErr: true,
             errMessage: action.payload
-      });
+        });
+
+
+        // case `${GET_USER_PURCHASE}_PENDING`:
+        // return Object.assign({}, state, { isLoading: true });
+
+        // case `${GET_USER_PURCHASE}_FULFILLED`:
+        // return Object.assign({}, state, { 
+        //     loading: false,
+        //     purchaseData: action.payload
+        // });
+
+        // case `${GET_USER_PURCHASE}_REJECTED`:
+        // return Object.assign({}, state, {
+        //     isLoading: false,
+        //     didErr: true,
+        //     errMessage: action.payload
+        // });
 
 
       

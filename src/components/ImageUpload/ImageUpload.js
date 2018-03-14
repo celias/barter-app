@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import firebase from './../../fire';
 
+
+
  class ImageUpload extends Component {
   constructor(props) {
     super(props);
