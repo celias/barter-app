@@ -15,22 +15,22 @@ class Header extends Component {
     
     <li className="navbar" style={{ listStyleType: 'none', whiteSpace: 'nowrap'}}>
         <Link to="/">
-          <a>Home</a>
+          <a>Home |</a>
         </Link>
 
         <Link to="/profilecreator">
-          <a>Update Profile</a>
+          <a>Update Profile |</a>
         </Link>
       
         <Link to="/profileform">
-          <a>Profile</a>
+          <a>Profile |</a>
         </Link>
         <Link to="/barter">
-        <a>Barter Something</a>
+        <a>Barter Something |</a>
         </Link>
 
         <Link to="/marketplace">
-        <a>Browse Barters</a>
+        <a>Browse Barters |</a>
         </Link>
 
         <Link to="/cart">

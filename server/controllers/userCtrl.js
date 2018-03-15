@@ -24,18 +24,10 @@ const getUserImg = (req, res, next) => {
     .then(user => res.status(200).send(user)
     .catch((err) => res.status(500).send)
 )}
-// // Is getUserBarters even relevant???
-// const getUserBarters = (req, res, next) => {
-//     console.log(req.body);
-//     const db = req.app.get("db")
-//     db.updateUserProfile([req.body.userBarters])
-//     .then(user => res.status(200).send(user)
-//     .catch((err) => res.status(500).send)
-// )}
 
-// this one might be relevant...
+
 const getUserBarter = (req, res, next) => {
-    console.log("HITIOTITIT")
+    console.log("hit")
  console.log(req.body)
     const db = req.app.get("db")
     db.createUserBarter([req.body.barterInfo, req.body.barterName, req.user.id, req.body.barterImg])
@@ -44,8 +36,7 @@ const getUserBarter = (req, res, next) => {
 )}
 
 const getBarterData = (req, res, next) => {
-
-    console.log("IM IN USER BARTERE DATA")
+    console.log("IM IN USER BARTER DATA")
     console.log(req.body, "no cursing");
     const db = req.app.get("db")
     db.postUserBarter() // this is not actually a post ...it's getting stuff
@@ -60,9 +51,11 @@ const getProductData = (req, res, next) => {
     .catch((err) => {console.log(err); res.status(500).send}
 )}
 
+// Inserting confirmed barters into the DB. Probably won't do anything else 
+// with this.
 const getConfirmedData = (req, res, next) => {
     const db = req.app.get("db")
-    db.getConfirmedBarter([req.body])
+    db.createConfirmedBarter([req.body.barterItemName, req.body.barterUserName, req.body.purchaseDate, req.body.tradedFor])
     .then(user => {console.log(user); res.status(200).send(user)})
     .catch((err) => {console.log(err); res.status(500).send}
 )}

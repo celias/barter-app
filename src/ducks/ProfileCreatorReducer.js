@@ -19,13 +19,16 @@ const initialProfileState = {
     
     barterData: [],
     cartData: [],
-    // productData: {}
-
+    // productData: {},
+    cart: [],
     
-    cart: []
-
+    // KEEPING TRACK OF USER FULFILLED BARTERS IN MY DB
+    barterItemName: '',
+    barterUserName: '',
+    purchaseDate: '',
+    tradedFor: '',
+    confirmedData: []
 }
-
 // CONSTANTS
 const UPDATE_DISPLAY_NAME = "UPDATE_DISPLAY_NAME";
 const UPDATE_USER_ABOUT = "UPDATE_USER_ABOUT";
@@ -33,14 +36,10 @@ const UPDATE_USER_LOCATION = "UPDATE_USER_LOCATION";
 const UPDATE_USER_EMAIL = "UPDATE_USER_EMAIL";
 const UPDATE_USER_MEDIUMS = "UPDATE_USER_MEDIUMS";
 const UPDATE_USER_BARTERS = "UPDATE_USER_BARTERS"; // this is also useless but leave it alone!
-
 const UPDATE_USER_WANTS = "UPDATE_USER_WANTS"; // CONFIRMING THE USER PURCHASE/BARTER
-
 const UPDATE_USER_IMG = "UPDATE_USER_IMG";
 const GET_USER_UPDATE = "GET_USER_UPDATE";
 const GET_USER = "GET_USER";
-
-
 const GET_BARTER_INFO = "GET_BARTER_INFO";
 const GET_BARTER_NAME = "GET_BARTER_NAME";
 const GET_USER_ID = "GET_USER_ID";
@@ -48,14 +47,18 @@ const GET_ITEM_ID = "GET_ITEM_ID";
 const GET_BARTER_IMG = "GET_BARTER_IMG";
 const GET_BARTER_DATA = "GET_BARTER_DATA";
 const GET_USER_BARTER = "GET_USER_BARTER";
-// const GET_PRODUCT_DATA = "GET_PRODUCT_DATA";
-// const GET_USER_PURCHASE = "GET_USER_PURCHASE";
 
 const ADD_TO_CART = "ADD_TO_CART";
 const GET_CART_DATA = "GET_CART_DATA";
-
 const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 const CHECKOUT = "CHECKOUT";
+
+// DB RECORDS OF BARTERS
+const GET_BARTER_ITEM_NAME = "GET_BARTER_ITEM_NAME";
+const GET_BARTER_USER_NAME = "GET_BARTER_USER_NAME";
+const GET_PURCHASE_DATE = "GET_PURCHASE_DATE";
+const GET_TRADED_FOR = "GET_TRADED_FOR";
+const GET_CONFIRMED_DATA = "GET_CONFIRMED_DATA";
 
 
 export default function profileReducer( state = initialProfileState, action ) {
@@ -80,9 +83,7 @@ export default function profileReducer( state = initialProfileState, action ) {
         case UPDATE_USER_BARTERS:
         return Object.assign({}, state, { userBarters: action.payload } ); // useless!!!!!!
         
-      
-
-        
+    
         case `${UPDATE_USER_WANTS}_PENDING`:
         return Object.assign({}, state, { isLoading: true });
 
@@ -98,7 +99,6 @@ export default function profileReducer( state = initialProfileState, action ) {
             didErr: true,
             errMessage: action.payload
         });
-
 
 
         case UPDATE_USER_IMG:
@@ -182,45 +182,6 @@ export default function profileReducer( state = initialProfileState, action ) {
 
 
 
-        // case `${GET_USER_PURCHASE}_PENDING`:
-        // return Object.assign({}, state, { isLoading: true });
-
-        // case `${GET_USER_PURCHASE}_FULFILLED`:
-        // return Object.assign({}, state, { 
-        //     loading: false,
-        //     purchaseData: action.payload
-        // });
-
-        // case `${GET_USER_PURCHASE}_REJECTED`:
-        // return Object.assign({}, state, {
-        //     isLoading: false,
-        //     didErr: true,
-        //     errMessage: action.payload
-        // });
-
-
-      
-    //   case `${GET_PRODUCT_DATA}_PENDING`:
-    //   return Object.assign({}, state, { isLoading: true });
-
-    //   case `${GET_PRODUCT_DATA}_FULFILLED`:
-    //     return Object.assign({}, state, { 
-    //         loading: false,
-    //         productData: action.payload
-    //     });
-
-    //   case `${GET_PRODUCT_DATA}_REJECTED`:
-    //     return Object.assign({}, state, {
-    //         isLoading: false,
-    //         didErr: true,
-    //         errMessage: action.payload
-    //   });
-
-
-
-
-
-
         case GET_BARTER_INFO:
         return Object.assign({}, state, { barterInfo: action.payload } );
 
@@ -237,6 +198,22 @@ export default function profileReducer( state = initialProfileState, action ) {
         return Object.assign({}, state, { barterImg: action.payload } );
 
         
+        //DB BARTER DATA FOR FULFILLED SALES
+        case GET_BARTER_ITEM_NAME:
+        return Object.assign({}, state, { barterItemName: action.payload } );
+
+        case GET_BARTER_USER_NAME:
+        return Object.assign({}, state, { barterUserName: action.payload } );
+
+        case GET_PURCHASE_DATE:
+        return Object.assign({}, state, { purchaseDate: action.payload } );
+
+        case GET_TRADED_FOR:
+        return Object.assign({}, state, { tradedFor: action.payload } );
+
+        case GET_CONFIRMED_DATA:
+        return Object.assign({}, state, { confirmedData: action.payload } );
+   
         default: return state;
     }
 }
@@ -376,7 +353,7 @@ export function getUserUpdate(displayName,
  }
 
 export function getBarterData(){
-    console.log("fired barter datsa")
+    console.log("fired barter data")
     return {
         type: GET_BARTER_DATA,
         payload: axios
@@ -392,7 +369,7 @@ export function getBarterData(){
 }
 
 export function getUserBarter(barterInfo, barterName, userId, itemId, barterImg){
-    console.log("fired, yeppper s ", barterInfo, barterName, userId, itemId, barterImg)
+    console.log("fired, yeppper", barterInfo, barterName, userId, itemId, barterImg)
     return {
         type: GET_USER_BARTER,
         payload: axios
@@ -437,18 +414,52 @@ export function removeFromCart( product_id ) {
     };
   }
 
-// export function getProductData(id){
-//     console.log("fired product data")
-//     return {
-//         type: GET_BARTER_DATA,
-//         payload: axios
-//           .get("/api/getBarterData")
-//           .then(response => {
-//             console.log(response, "this is prod")
-//             return response.data;
-//         })
-//         .catch(err => {
-//             return err.message;
-//         })
-//   };
-// }
+
+  export function getBarterItemName( item_name ) {
+      return {
+          type: GET_BARTER_ITEM_NAME,
+          payload: item_name
+      }
+  }
+
+  export function getBarterUserName( user_name ) {
+        return {
+            type: GET_BARTER_USER_NAME,
+            payload: user_name
+        }
+  }
+
+  export function getPurchaseDate( date ) {
+      return {
+          type: GET_PURCHASE_DATE,
+          payload: date
+      }
+  }
+
+  export function getTradedFor( item ) {
+    return {
+        type: GET_TRADED_FOR,
+        payload: item
+    }
+  }
+
+  export function getConfirmedData( barterItemName,
+                                    barterUserName,
+                                    purchaseDate,
+                                    tradedFor ) {
+        return {
+          type: GET_CONFIRMED_DATA,
+          payload: axios
+          .get("/api/createConfirmedBarter", { barterItemName,
+            barterUserName,
+            purchaseDate,
+            tradedFor } )
+          .then(response => {
+            console.log(response, "this is crap")
+            return response.data;
+        })
+        .catch(err => {
+            return err.message;
+        })
+  };
+}
