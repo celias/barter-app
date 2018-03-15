@@ -3,8 +3,8 @@
 const passport = require("passport");
 
 const login = passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3001/#/userprofile",
-    failureRedirect: "http://localhost:3001/#/" 
+    successRedirect: "/#/userprofile",
+    failureRedirect: "/#/" 
 });
 
 // const getUser = (req, res) => {
@@ -14,7 +14,7 @@ const login = passport.authenticate("auth0", {
 
 const logout = (req, res) => {
     req.session.destroy(() => {
-        res.redirect('http://localhost:3001/#/login');
+        res.redirect('/#/login');
     });
 }
 
