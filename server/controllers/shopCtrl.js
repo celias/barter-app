@@ -12,25 +12,21 @@ module.exports = {
         console.log(req.session)
 
         res.status(200).send(req.session.cart)
-},
-
-    // change these!!!
+    },
+    
+    checkout: (req, res, next) => {
+    console.log(req.session);
+    
+    
+    res.status(200).send( req.session.user );
+    },
+    
+    // change this!!!
     removeFromCart: (req, res, next) => {
     const { cart } = req.session.user;
       if( selectedProduct === true ){
           cart.splice( selectedProduct, 1);
       }
     res.status(200).send( req.session.user );
-},
-
-    checkout: (req, res, next) => {
-    const { user } = req.session;
-    user.cart = [];
-    user.total = 0;
-
-    res.status(200).send( req.session.user );
-    },
-
-
-
+    }
 }

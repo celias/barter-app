@@ -100,6 +100,9 @@ app.post("/api/cart", shopCtrl.addToCart);
 app.post("/api/cart/checkout", shopCtrl.checkout);
 app.delete("/api/cart", shopCtrl.removeFromCart);
 
+// SEND CART STUFF TO DB
+app.get("/api/getConfirmedBarter", userCtrl.getConfirmedBarter);
+
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);

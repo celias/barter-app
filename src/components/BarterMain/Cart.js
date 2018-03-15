@@ -27,6 +27,8 @@ class Cart extends Component {
             <div>
                 <p> HERE IS STUFF IN YOUR CART </p>
                     <img src={this.state.cartData.length > 0 && this.state.cartData[0].img} />
+
+                <button onClick={() => this.props.checkout(this.state.cartData[0])}>Confirm Barter</button>
                </div>
         )
     }
