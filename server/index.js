@@ -15,7 +15,7 @@ const mainCtrl = require('./controllers/mainCtrl');
 const userCtrl = require('./controllers/userCtrl');
 const shopCtrl = require('./controllers/shopCtrl');
 
-const port = 3001;
+const port = process.env.PORT || 3001
 
 const app = express();
 
