@@ -37,6 +37,8 @@ massive(process.env.CONNECTION_STRING)
 app.use(json());
 app.use(cors());
 
+app.use(express.static(`${__dirname}/../build`));
+
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -101,7 +103,12 @@ app.post("/api/cart/checkout", shopCtrl.checkout);
 app.delete("/api/cart", shopCtrl.removeFromCart);
 
 // SEND CART STUFF TO DB
-app.get("/api/createConfirmedBarter", userCtrl.getConfirmedData);
+app.post("/api/createConfirmedBarter", userCtrl.createConfirmedData);
+
+
+app.get('*', (req, res) =>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 
 app.listen(port, () => {

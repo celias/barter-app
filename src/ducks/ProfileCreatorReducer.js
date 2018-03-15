@@ -58,7 +58,7 @@ const GET_BARTER_ITEM_NAME = "GET_BARTER_ITEM_NAME";
 const GET_BARTER_USER_NAME = "GET_BARTER_USER_NAME";
 const GET_PURCHASE_DATE = "GET_PURCHASE_DATE";
 const GET_TRADED_FOR = "GET_TRADED_FOR";
-const GET_CONFIRMED_DATA = "GET_CONFIRMED_DATA";
+const CREATE_CONFIRMED_DATA = "GET_CONFIRMED_DATA";
 
 
 export default function profileReducer( state = initialProfileState, action ) {
@@ -211,7 +211,7 @@ export default function profileReducer( state = initialProfileState, action ) {
         case GET_TRADED_FOR:
         return Object.assign({}, state, { tradedFor: action.payload } );
 
-        case GET_CONFIRMED_DATA:
+        case CREATE_CONFIRMED_DATA:
         return Object.assign({}, state, { confirmedData: action.payload } );
    
         default: return state;
@@ -443,17 +443,17 @@ export function removeFromCart( product_id ) {
     }
   }
 
-  export function getConfirmedData( barterItemName,
+  export function createConfirmedData( barterItemName,
                                     barterUserName,
                                     purchaseDate,
-                                    tradedFor ) {
+                                    tradedFor, barterInfo, barterName, userId, barterImg, itemId ) {
         return {
-          type: GET_CONFIRMED_DATA,
+          type: CREATE_CONFIRMED_DATA,
           payload: axios
-          .get("/api/createConfirmedBarter", { barterItemName,
+          .post("/api/createConfirmedBarter", { barterItemName,
             barterUserName,
             purchaseDate,
-            tradedFor } )
+            tradedFor, barterInfo, barterName, userId, barterImg, itemId } )
           .then(response => {
             console.log(response, "this is crap")
             return response.data;
