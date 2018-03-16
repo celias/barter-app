@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 import { getCartData, createConfirmedData, getUserBarter } from '../../ducks/ProfileCreatorReducer';
 
-import swal from 'sweetalert';
-
 class Cart extends Component {
     constructor(){
         super();

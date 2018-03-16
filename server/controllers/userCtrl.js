@@ -60,6 +60,7 @@ const createConfirmedData = (req, res, next) => {
     db.createConfirmedBarter([req.body.barterCartName, req.body.userCartWant, req.body.userCartProductId, req.body.userCartId, req.body.userCartDescription, req.body.userCartImg, req.user.id ])
     .then(user => {
         db.deleteBarter([req.body.userCartProductId])
+        req.session.cart.length = 0;
     })
     .catch((err) => {console.log(err); res.status(500).send}
 )}
