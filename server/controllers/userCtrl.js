@@ -58,11 +58,13 @@ const createConfirmedData = (req, res, next) => {
 
     console.log(req.body, "A USER")
     db.createConfirmedBarter([req.body.barterCartName, req.body.userCartWant, req.body.userCartProductId, req.body.userCartId, req.body.userCartDescription, req.body.userCartImg, req.user.id ])
-    .then(user => {console.log(user); res.status(200).send(user)})
+    .then(user => {
+        db.deleteBarter([req.body.userCartProductId])
+    })
     .catch((err) => {console.log(err); res.status(500).send}
 )}
 
-// the join will be a getrequest too
+
 
 module.exports = {
     getUser,

@@ -104,6 +104,8 @@ app.delete("/api/cart", shopCtrl.removeFromCart);
 
 // SEND CART STUFF TO DB
 app.post("/api/createConfirmedBarter", userCtrl.createConfirmedData);
+// //DELETE FROM CART
+// app.delete("/api/deleteBarter", userCtrl.deleteBarter);
 
 
 // app.get('*', (req, res) =>{
