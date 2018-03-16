@@ -23,7 +23,7 @@ class Cart extends Component {
     }
 
     render(){
-    console.log(this.state.cartData[0],"THIS", this, "HURRRR")
+    console.log(this.state.cartData[0], "CART DATA")
         const { barterItemName, 
             barterUserName, 
             purchaseDate, 
@@ -37,8 +37,8 @@ class Cart extends Component {
                 <p> HERE IS STUFF IN YOUR CART </p>
                     <img src={this.state.cartData.length > 0 && this.state.cartData[0].img} />
 
-                <button onClick={() => this.props.createConfirmedData(this.state.cartData[0].b_item_name, 
-            this.state.cartData[0].b_user_name, this.state.cartData[0].purchase_date, this.state.cartData[0].description, this.state.cartData[0].traded_for, this.state.cartData[0].description, this.state.cartData[0].product_name, this.state.cartData[0].img, this.state.cartData[0].product_id, this.state.cartData[0].buyer_id, this.state.cartData[0].user_id )}>Confirm Barter</button>
+                <button onClick={() => this.props.createConfirmedData(this.state.cartData[0].product_name, 
+            this.state.cartData[0].wants, this.state.cartData[0].product_id, this.state.cartData[0].user_id, this.state.cartData[0].description, this.state.cartData[0].img )}>Confirm Barter</button>
                </div>
         )
     }

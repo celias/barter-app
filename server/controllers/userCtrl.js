@@ -57,7 +57,7 @@ const createConfirmedData = (req, res, next) => {
     const db = req.app.get("db")
 
     console.log(req.body, "A USER")
-    db.createConfirmedBarter([req.body.barterItemName, req.body.barterUserName, req.body.purchaseDate, req.body.tradedFor, req.body.barterInfo, req.body.barterName, req.body.userId, req.body.barterImg, req.body.itemId, req.user.id ])
+    db.createConfirmedBarter([req.body.barterCartName, req.body.userCartWant, req.body.userCartProductId, req.body.userCartId, req.body.userCartDescription, req.body.userCartImg, req.user.id ])
     .then(user => {console.log(user); res.status(200).send(user)})
     .catch((err) => {console.log(err); res.status(500).send}
 )}

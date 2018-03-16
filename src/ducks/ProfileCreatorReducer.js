@@ -24,9 +24,6 @@ const initialProfileState = {
     
     // KEEPING TRACK OF USER FULFILLED BARTERS IN MY DB
     barterItemName: '',
-    barterUserName: '',
-    purchaseDate: '',
-    tradedFor: '',
     confirmedData: []
 }
 // CONSTANTS
@@ -55,9 +52,6 @@ const CHECKOUT = "CHECKOUT";
 
 // DB RECORDS OF BARTERS
 const GET_BARTER_ITEM_NAME = "GET_BARTER_ITEM_NAME";
-const GET_BARTER_USER_NAME = "GET_BARTER_USER_NAME";
-const GET_PURCHASE_DATE = "GET_PURCHASE_DATE";
-const GET_TRADED_FOR = "GET_TRADED_FOR";
 const CREATE_CONFIRMED_DATA = "GET_CONFIRMED_DATA";
 
 
@@ -201,15 +195,6 @@ export default function profileReducer( state = initialProfileState, action ) {
         //DB BARTER DATA FOR FULFILLED SALES
         case GET_BARTER_ITEM_NAME:
         return Object.assign({}, state, { barterItemName: action.payload } );
-
-        case GET_BARTER_USER_NAME:
-        return Object.assign({}, state, { barterUserName: action.payload } );
-
-        case GET_PURCHASE_DATE:
-        return Object.assign({}, state, { purchaseDate: action.payload } );
-
-        case GET_TRADED_FOR:
-        return Object.assign({}, state, { tradedFor: action.payload } );
 
         case CREATE_CONFIRMED_DATA:
         return Object.assign({}, state, { confirmedData: action.payload } );
@@ -422,38 +407,13 @@ export function removeFromCart( product_id ) {
       }
   }
 
-  export function getBarterUserName( user_name ) {
-        return {
-            type: GET_BARTER_USER_NAME,
-            payload: user_name
-        }
-  }
 
-  export function getPurchaseDate( date ) {
-      return {
-          type: GET_PURCHASE_DATE,
-          payload: date
-      }
-  }
 
-  export function getTradedFor( item ) {
-    return {
-        type: GET_TRADED_FOR,
-        payload: item
-    }
-  }
-
-  export function createConfirmedData( barterItemName,
-                                    barterUserName,
-                                    purchaseDate,
-                                    tradedFor, barterInfo, barterName, userId, barterImg, itemId ) {
+  export function createConfirmedData( barterCartName, userCartWant, userCartProductId, userCartId, userCartDescription, userCartImg ) {
         return {
           type: CREATE_CONFIRMED_DATA,
           payload: axios
-          .post("/api/createConfirmedBarter", { barterItemName,
-            barterUserName,
-            purchaseDate,
-            tradedFor, barterInfo, barterName, userId, barterImg, itemId } )
+          .post("/api/createConfirmedBarter", { barterCartName, userCartWant, userCartProductId, userCartId, userCartDescription, userCartImg } )
           .then(response => {
             console.log(response, "this is crap")
             return response.data;
