@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import { getCartData, createConfirmedData, getUserBarter } from '../../ducks/ProfileCreatorReducer';
 
+import swal from 'sweetalert';
+
 class Cart extends Component {
     constructor(){
         super();
@@ -28,6 +30,7 @@ class Cart extends Component {
             barterUserName, 
             purchaseDate, 
             tradedFor, barterInfo, barterName, userId, barterImg, itemId } = this.props;
+            swal("Barter confirmed! Lister of barter will reach out to you shortly! Happy trading!");
 //    console.log(barterItemName, 
 //     barterUserName, 
 //     purchaseDate, 
