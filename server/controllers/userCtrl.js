@@ -28,7 +28,7 @@ const getUserImg = (req, res, next) => {
 
 const getUserBarter = (req, res, next) => {
     console.log("hit")
- console.log(req.body)
+    console.log(req.body)
     const db = req.app.get("db")
     db.createUserBarter([req.body.barterInfo, req.body.barterName, req.user.id, req.body.barterImg])
     .then(user => {res.status(200).send(user)})

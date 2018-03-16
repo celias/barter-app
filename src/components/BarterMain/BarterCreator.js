@@ -19,7 +19,7 @@ class BarterCreator extends Component {
             <h1>You are at the barter page</h1>
             
             <div className="imgUploader">
-                    <BarterImg />
+                <BarterImg />
                 
                 <p> What are you bartering?{" "}<input type="text" placeholder="item name" onChange={ ( e ) => getBarterName( e.target.value ) } /></p>
                 <input type="text" placeholder="item description" onChange={ ( e ) => getBarterInfo( e.target.value ) } />

@@ -16,7 +16,7 @@ class MarketPlace extends Component {
     
 
     render(){
-    console.log(this.props)
+    console.log(this.props.form.barterData, "HERE")
     let newBarterData = this.props.form.barterData.length > 0 && this.props.form.barterData.map((curr, i) => {
         console.log(curr, "IS IT OVER YET")
     return (

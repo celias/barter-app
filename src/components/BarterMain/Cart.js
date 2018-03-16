@@ -17,7 +17,7 @@ class Cart extends Component {
 
     componentDidMount(){
         axios.get("/api/getCartData").then(response => {
-            console.log(response.data, "FUCKING CAART")
+            console.log(response.data, "component DID mount CART!!!")
             this.setState({
                 cartData: response.data
             })
@@ -30,21 +30,35 @@ class Cart extends Component {
             barterUserName, 
             purchaseDate, 
             tradedFor, barterInfo, barterName, userId, barterImg, itemId } = this.props;
-            swal("Barter confirmed! Lister of barter will reach out to you shortly! Happy trading!");
-//    console.log(barterItemName, 
-//     barterUserName, 
-//     purchaseDate, 
-//     tradedFor, barterInfo, barterName, userId,       barterImg, itemId)
-        return (
-            <div>
-                <p> HERE IS STUFF IN YOUR CART </p>
-                    <img src={this.state.cartData.length > 0 && this.state.cartData[0].img} />
+        
+            
+            
+            
+            //     console.log(barterItemName, 
+            //     barterUserName, 
+            //     purchaseDate, 
+            //     tradedFor, barterInfo, barterName, userId, barterImg, itemId)
+            return (
+                <div>
+                <div>
+                {this.state.cartData.length > 0 &&
                     
+                    // <p> HERE IS STUFF IN YOUR CART </p>
+                    <div>
+                    <img src={this.state.cartData[0].img} />
+                    <p>{this.state.cartData[0].product_name}</p>
+                    <p>{this.state.cartData[0].wants}</p>
+                    <p>{this.state.cartData[0].email}</p>
 
+                </div>
+                }
+                </div>
                 <button onClick={() => this.props.createConfirmedData(this.state.cartData[0].product_name, 
-            this.state.cartData[0].wants, this.state.cartData[0].product_id, this.state.cartData[0].user_id, this.state.cartData[0].description, this.state.cartData[0].img )}>Confirm Barter</button>
+            this.state.cartData[0].wants, this.state.cartData[0].product_id, this.state.cartData[0].user_id, this.state.cartData[0].description, this.state.cartData[0].img )
+            .then(swal("Barter confirmed! Lister of barter will reach out to you shortly! Happy trading!"))}>Confirm Barter</button>
                </div>
         )
+        
     }
  }
 

@@ -8,7 +8,6 @@ const massive = require("massive");
 const Auth0Strategy = require('passport-auth0');
 const path = require("path");
 
-
 const checkForSession = require('./middlewares/checkForSession');
 
 const mainCtrl = require('./controllers/mainCtrl');
@@ -36,6 +35,8 @@ massive(process.env.CONNECTION_STRING)
 
 app.use(json());
 app.use(cors());
+
+//\\FOR PRODUCTION//\\
 
 // app.use(express.static(`${__dirname}/../build`));
 
@@ -86,27 +87,21 @@ app.get("/auth", mainCtrl.login)
 app.get('/api/user', userCtrl.getUser);
 app.get('/api/logout', mainCtrl.logout);
 app.put("/api/getUserUpdate", userCtrl.getUserUpdate);
-
 app.put("/api/getUserImg", userCtrl.getUserImg);
-
 app.get("/api/getBarterData", userCtrl.getBarterData);
 app.get("/api/getProductData/:id", userCtrl.getProductData);
 app.post("/api/getUserBarter", userCtrl.getUserBarter);
 
-
-
 // CART
 app.get("/api/getCartData", shopCtrl.getCartData);
-
 app.post("/api/cart", shopCtrl.addToCart);
 app.post("/api/cart/checkout", shopCtrl.checkout);
-app.delete("/api/cart", shopCtrl.removeFromCart);
 
 // SEND CART STUFF TO DB
 app.post("/api/createConfirmedBarter", userCtrl.createConfirmedData);
-// //DELETE FROM CART
-// app.delete("/api/deleteBarter", userCtrl.deleteBarter);
 
+
+///\\\\ FOR PRODUCTION ///\\\\
 
 // app.get('*', (req, res) =>{
 //     res.sendFile(path.join(__dirname, '../build/index.html'));
