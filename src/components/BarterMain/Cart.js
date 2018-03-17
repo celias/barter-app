@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { getCartData, createConfirmedData, getUserBarter } from '../../ducks/ProfileCreatorReducer';
 
+
 import swal from 'sweetalert';
 
 class Cart extends Component {
@@ -56,7 +57,7 @@ class Cart extends Component {
                 <button onClick={() => this.props.createConfirmedData(this.state.cartData[0].product_name, 
             this.state.cartData[0].wants, this.state.cartData[0].product_id, this.state.cartData[0].user_id, this.state.cartData[0].description, this.state.cartData[0].img )
             .then(swal("Barter confirmed! Lister of barter will reach out to you shortly! Happy trading!"))}>Confirm Barter</button>
-               </div>
+            </div>
         )
         
     }

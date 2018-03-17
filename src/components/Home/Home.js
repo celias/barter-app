@@ -13,11 +13,11 @@ class Home extends Component{
  
     render() {
      return (
-       <div className="homeContainer">
-       <div className="container">
-       <h1>b<span>{`{art}`}</span>er</h1>
+       <div className="loginContainer">
+       <div>
+       <h1>b<span className="arter">{`{art}`}</span>er</h1>
        </div>
-         <div className="loginContainer">
+         <div>
 
        
        

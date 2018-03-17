@@ -8,6 +8,7 @@ const massive = require("massive");
 const Auth0Strategy = require('passport-auth0');
 const path = require("path");
 
+
 const checkForSession = require('./middlewares/checkForSession');
 
 const mainCtrl = require('./controllers/mainCtrl');

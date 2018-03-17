@@ -1,4 +1,4 @@
-.homeContainer {
+.loginContainer {
     background-image: url('https://images.unsplash.com/photo-1513738260158-30e559c10093?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbf978b5379f75e2bf9141c5edbce85d&auto=format&fit=crop&w=2850&q=80');
     background-size: cover;
     background-position: center center;
@@ -17,30 +17,30 @@
     align-items: center;
     align-content: center;
     color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Pattaya', sans-serif;
     font-weight: 200;
     font-size: 5em;
     text-decoration: none;
   }
 
-  .container {
+  /* .landingContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-  }
-
-  h1 {
+  } */
+/* 
+   .homeContainer {
     font-family: 'Pattaya', sans-serif;
     font-size: 10vh;
     color: white;
     text-shadow: -1px 1px 2px bisque;
     margin-top: 300px;
-  }
+  } */
 
 
-  span {
+  .arter {
     font-family: 'Pacifico', cursive;
     color: white;
     opacity: 50%;

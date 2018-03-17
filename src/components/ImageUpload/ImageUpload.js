@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import firebase from './../../fire';
 
+import './ImageUpload.css';
 
 
  class ImageUpload extends Component {
@@ -44,7 +45,7 @@ import firebase from './../../fire';
   render() {
     return (
       <div>
-        <h1>Image Upload</h1>
+        <h1 className="imageContainer">Image Upload</h1>
 
         {this.state.imagePreview && <img src={this.state.imagePreview} />}
 
