@@ -1,3 +1,5 @@
+
+
 .logo {
   display: flex;
 	flex-direction: column;
@@ -39,7 +41,7 @@
   }
 
 
-  .loginBtn{
+  .bttn-minimal {
     background-color: palevioletred;
     border: none;
     color: black;
@@ -52,3 +54,4 @@
     transition: 0.3s;
     display: inline-block;
   }
+ 

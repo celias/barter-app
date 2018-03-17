@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 
-import Header from './components/Header/Header';
+
 
 import ImageUpload from './components/ImageUpload/ImageUpload';
 import SubmitBtnHome from './components/SubmitBtn/SubmitBtnHome';
@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div>
        
-          <Header />
+          
         { routes } 
       </div>
     );

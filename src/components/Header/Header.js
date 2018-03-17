@@ -1,44 +1,58 @@
 import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
-// import '../../App.css';
-import './Header.css';
+
+
+
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import RaisedButton from 'material-ui/RaisedButton';
+import AppBar from 'material-ui/AppBar';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Header extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {open: false};
+  }
+
+  handleToggle = () => this.setState({open: !this.state.open});
+  handleClose = () => this.setState({open: false});
 
   render() {
 
     return (
     <div>
-      <ul className="navbar" > 
-    
-    <li className="navbar" style={{ listStyleType: 'none', whiteSpace: 'nowrap'}}>
-        <Link to="/">
-          <a>Home |</a>
-        </Link>
-
-        <Link to="/profilecreator">
-          <a>Update Profile |</a>
-        </Link>
+      <MuiThemeProvider>
+        <AppBar
+          label="MENU"
+          onClick={this.handleToggle}
+        />
+        <Drawer open={this.state.open}>
+        
+          <MenuItem onClick={this.handleClose}><Link to="/">
+          <a>Home</a>
+        </Link></MenuItem>
+          <MenuItem onClick={this.handleClose}><Link to="/profilecreator">
+          <a>Update Profile</a>
+        </Link></MenuItem>
+        <MenuItem onClick={this.handleClose}><Link to="/profileform">
+          <a>Profile</a>
+        </Link></MenuItem>
+        <MenuItem onClick={this.handleClose}><Link to="/barter">
+          <a>Barter</a>
+        </Link></MenuItem>
+        <MenuItem onClick={this.handleClose}><Link to="/marketplace">
+          <a>Collection</a>
+        </Link></MenuItem>
+        <MenuItem onClick={this.handleClose}><Link to="/cart">
+          <a>Cart</a>
+        </Link></MenuItem>
+        
+        </Drawer>
+      </MuiThemeProvider>
       
-        <Link to="/profileform">
-          <a>Profile |</a>
-        </Link>
-        <Link to="/barter">
-        <a>Barter Something |</a>
-        </Link>
-
-        <Link to="/marketplace">
-        <a>Browse Barters |</a>
-        </Link>
-
-        <Link to="/cart">
-        <a>Cart</a>
-        </Link>
-      
-      </li>
-    </ul> 
   </div>
     );
   }
