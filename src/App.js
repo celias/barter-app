@@ -8,6 +8,7 @@ import SubmitBtnHome from './components/SubmitBtn/SubmitBtnHome';
 
 
 import './App.css';
+// import './components/Home/Home.css';
 
 
 import routes from './routes';
@@ -20,12 +21,6 @@ class App extends Component {
       <div>
        
           <Header />
-          
-        
-          {/* <h1>b<span>{`{art}`}</span>er</h1> */}
-
-          
-      
         { routes } 
       </div>
     );

@@ -1,0 +1,17 @@
+.navbar a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    display: inline-block;
+    padding: 5px;
+    margin-top: 2%;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 850;
+    height: 7vh;
+    font-family: monospace;
+    white-space: nowrap;
+  }

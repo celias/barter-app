@@ -36,11 +36,11 @@ class Product extends Component {
                    <div className="productContainer">
                    
                    <img src={this.state.productData[0].img} />
-                   <p className="monospace">User: {this.state.productData[0].nick_name}</p>
-                   <img className="profilePic" src={this.state.productData[0].profile_img} />
-                   <p className="monospace">Item for barter: {this.state.productData[0].product_name}</p>
-                   <p className="monospace">Barter description: {this.state.productData[0].description}</p>
-                   <p className="monospace">Will trade for: {this.state.productData[0].wants}</p>
+                   <p>User: {this.state.productData[0].nick_name}</p>
+                   <img src={this.state.productData[0].profile_img} />
+                   <p>Item for barter: {this.state.productData[0].product_name}</p>
+                   <p>Barter description: {this.state.productData[0].description}</p>
+                   <p>Will trade for: {this.state.productData[0].wants}</p>
                    
                    <button onClick={() => this.props.addToCart(this.state.productData[0]).then(this.props.history.push('/cart'))}>Add to cart</button>
                    </div>

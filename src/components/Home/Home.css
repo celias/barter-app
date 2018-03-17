@@ -1,87 +1,54 @@
-.loginContainer {
-    background-image: url('https://images.unsplash.com/photo-1513738260158-30e559c10093?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbf978b5379f75e2bf9141c5edbce85d&auto=format&fit=crop&w=2850&q=80');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    height: auto;
-    width: 100%;
-    max-width: 100%;
-    list-style-type: none;
-   }
+.logo {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+  align-content: center;
+}
 
-   .loginContainer {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+/* div.logo {
+  margin-top: 10%;
+} */
+
+.loginContainer {
+  background-image: url('https://images.unsplash.com/photo-1513738260158-30e559c10093?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbf978b5379f75e2bf9141c5edbce85d&auto=format&fit=crop&w=2850&q=80');
+  background-position: center center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-size: cover;
+  height: 1000px;
+  
+
+}
+
+  .barter {
     color: white;
     font-family: 'Pattaya', sans-serif;
     font-weight: 200;
-    font-size: 5em;
-    text-decoration: none;
+    font-size: 10.2em;
+    margin-top: 10%;
   }
-
-  /* .landingContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-  } */
-/* 
-   .homeContainer {
-    font-family: 'Pattaya', sans-serif;
-    font-size: 10vh;
-    color: white;
-    text-shadow: -1px 1px 2px bisque;
-    margin-top: 300px;
-  } */
 
 
   .arter {
     font-family: 'Pacifico', cursive;
     color: white;
     opacity: 50%;
-    font-size: 1em;
-    text-shadow: 1px 2px 3px rgb(211, 236, 227, 148);
-    
+    text-shadow: 1px 2px 3px palevioletred;
   }
 
-  .navbar a {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    display: inline-block;
-    padding: 5px;
-    /* margin-left: 10%; */
-    margin-top: 2%;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: 850;
-    flex-basis: 50vh;
-    max-width: 100vh;
-    height: 7vh;
-    font-family: monospace;
-    white-space: nowrap;
-  }
 
   .loginBtn{
     background-color: palevioletred;
     border: none;
-    color: white;
+    color: black;
     padding: 16px 32px;
     text-align: center;
-    font-size: 0.3em;
+    font-size: 1.5em;
     font-family: monospace;
     margin: 4px 2px;
-    opacity: 0.8;
+    opacity: 50%;
     transition: 0.3s;
     display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
   }

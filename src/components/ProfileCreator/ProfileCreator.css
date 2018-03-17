@@ -1,15 +1,6 @@
-/* .formContainer{
-    font-family: monospace;
-    font-size: 2em;
-    display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: stretch;
-	align-content: flex-start;
-} */
 
-.formContainer {
+
+/* .formContainer {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -18,16 +9,5 @@
 	align-content: center;
     font-family: monospace;
     color: black;
-}
+} */
 
-.profilePic{
-	width: 70px;
-	height: 40px;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-	align-content: flex-start;
-	/* margin-right: 50%; */
-}
