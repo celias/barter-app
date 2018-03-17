@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 
 
-
 class BarterDisplay extends Component {
   
     render(){

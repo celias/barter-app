@@ -4,6 +4,7 @@ import axios from 'axios';
 import { getBarterImg } from './../../ducks/ProfileCreatorReducer';
 import { connect } from 'react-redux';
 
+
 class BarterImg extends Component {
     constructor(props) {
         super(props);
@@ -49,6 +50,7 @@ class BarterImg extends Component {
     console.log(this.props)
     return (
       <div>
+        
         <h1>Barter Upload</h1>
 
         {this.state.imagePreview && <img src={this.state.imagePreview} />}

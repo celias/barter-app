@@ -41,6 +41,7 @@ class Cart extends Component {
             //     tradedFor, barterInfo, barterName, userId, barterImg, itemId)
             return (
                 <div>
+                   
                 <div>
                 {this.state.cartData.length > 0 &&
                     

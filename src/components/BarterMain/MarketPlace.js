@@ -21,6 +21,7 @@ class MarketPlace extends Component {
         console.log(curr, "IS IT OVER YET")
     return (
         <div className="barterContainer">
+        
         <div key={i}>
             <Link to={`/product/${curr.product_id}`}><img src={curr.img} /></Link>
             <p>{curr.product_name}</p>

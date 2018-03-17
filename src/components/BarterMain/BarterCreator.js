@@ -10,12 +10,15 @@ import BarterImg from './BarterImg';
 import BarterDisplay from './BarterDisplay';
 
 
+
+
 class BarterCreator extends Component {
     render(){
     console.log(this.props);
     const { getBarterInfo, getBarterName, getBarterImg } = this.props;
     return (
         <div>
+       
             <h1>You are at the barter page</h1>
             
             <div className="imgUploader">

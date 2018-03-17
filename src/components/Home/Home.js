@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 
 import { getUser } from './../../ducks/UserReducer';
 import RaisedButton from 'material-ui/RaisedButton';
-import Header from './../Header/Header';
 
 import './Home.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -21,7 +20,7 @@ class Home extends Component {
     return (
       
       <div className="loginContainer">
-               <Header />
+    
        <div className="logo">
        <h1 className="barter">b<span className="arter">{`{art}`}</span>er</h1>
        
