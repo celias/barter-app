@@ -11,11 +11,31 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import AutoComplete from 'material-ui/AutoComplete';
+
 
 
 
 
 class ProfileCreator extends Component {
+    constructor(){
+        super();
+        this.state = {
+            dataSource: [art, collage, photography]
+        };
+    }
+
+    handleUpdateInput = (value) => {
+        this.setState({
+          dataSource: [
+            value,
+            value + value,
+            value + value + value,
+          ],
+        });
+      };
+    
+
     render(){
 
         const style = {
@@ -49,10 +69,14 @@ class ProfileCreator extends Component {
       hintText="Let us contact you..."
       floatingLabelText="Email"
     /><br />
-    <TextField style={style} onChange={ ( e ) => getUserMediums( e.target.value ) }
+    <AutoComplete dataSource={this.state.dataSource}
+          onUpdateInput={this.handleUpdateInput}
+    style={style} onChange={ ( e ) => getUserMediums( e.target.value ) }
       hintText="Art forms you work in..."
       floatingLabelText="Mediums"
-    /><br />
+    />
+    
+    <br />
     <TextField style={style} onChange={ ( e ) => getUserBarters( e.target.value ) }
       hintText="Tell us what you have!"
       floatingLabelText="Bartering?"
