@@ -6,25 +6,69 @@ import ProfileImg from './ProfileImg';
 
 import './ProfileCreator.css';
 
+import Divider from 'material-ui/Divider';
+import Paper from 'material-ui/Paper';
+import TextField from 'material-ui/TextField';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+
+
+
 
 class ProfileCreator extends Component {
     render(){
+
+        const style = {
+          marginLeft: 50,
+        };
+
         console.log(this.props);
         const { getDisplayName, getUserAbout, getUserLocation, getUserEmail, getUserMediums, getUserBarters, getUserWants, getUserImg } = this.props;
+        
+        
         return (
-            <div className="formContainer">
-                <div className="imageContainer">
-                  <ProfileImg />
-                </div>
 
-                <input type="text" placeholder="name" onChange={ ( e ) => getDisplayName( e.target.value ) } />
-                <input type="text" placeholder="about you" onChange={ ( e ) => getUserAbout( e.target.value ) } />
-                <input type="text" placeholder="locale?" onChange={ ( e ) => getUserLocation( e.target.value ) } />
-                <input type="text" placeholder="email" onChange={ ( e ) => getUserEmail( e.target.value ) } />
-                <input type="text" placeholder="mediums" onChange={ ( e ) => getUserMediums( e.target.value ) } />
-                <input type="img" placeholder="bartering" onChange={ ( e ) => getUserBarters( e.target.value ) } />
-                <input type="text" placeholder="wanted materials" onChange={ ( e ) => getUserWants( e.target.value ) } />
+    <div>
+  
+  <MuiThemeProvider>
+    
+    <TextField style={style} onChange={ ( e ) => getDisplayName( e.target.value ) }
+      hintText="Username"
+      floatingLabelText="Username"
+    /><br />
+    <br />
+    <TextField style={style} onChange={ ( e ) => getUserAbout( e.target.value ) }
+        hintText="Tell others about yourself."
+        floatingLabelText="Bio"
+    /><br />
+    <TextField style={style} onChange={ ( e ) => getUserLocation( e.target.value ) }
+      hintText="Tell us where you're from!"
+      floatingLabelText="Location"
+    /><br />
+    <TextField style={style} onChange={ ( e ) => getUserEmail( e.target.value ) }
+      hintText="Let us contact you..."
+      floatingLabelText="Email"
+    /><br />
+    <TextField style={style} onChange={ ( e ) => getUserMediums( e.target.value ) }
+      hintText="Art forms you work in..."
+      floatingLabelText="Mediums"
+    /><br />
+    <TextField style={style} onChange={ ( e ) => getUserBarters( e.target.value ) }
+      hintText="Tell us what you have!"
+      floatingLabelText="Bartering?"
+      
+    /><br />
+    <TextField style={style} onChange={ ( e ) => getUserWants( e.target.value ) }
+      hintText="Tell us what you want?"
+      floatingLabelText="Your wants..."
+    />
+    <br />
+    <Divider />
+            <ProfileImg />
+
+  </MuiThemeProvider>
                 
+    
                 <SubmitBtnHome />
                 
            </div>

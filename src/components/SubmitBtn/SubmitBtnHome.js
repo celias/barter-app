@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import { getUserUpdate } from './../../ducks/ProfileCreatorReducer';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import FlatButton from 'material-ui/FlatButton';
 
 
 class SubmitBtnHome extends Component {
@@ -25,17 +27,18 @@ class SubmitBtnHome extends Component {
         return(
             <div>
                 <div>
-                  
-                    <Link to="/">
-                        <button onClick={() => this.props.getUserUpdate(displayName,
+        <MuiThemeProvider>
+            <Link to="/">
+            <FlatButton label="Submit" primary={true} onClick={() => this.props.getUserUpdate(displayName,
             userAbout,
             userLocation,
             userEmail,
             userMediums,
             userBarters,
             userWants,
-            userImg)}>Submit</button>
+            userImg)} />
                     </Link>
+        </MuiThemeProvider>
                 </div>
             </div>
         )

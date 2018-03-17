@@ -4,6 +4,9 @@ import axios from 'axios';
 import { getUserImg } from './../../ducks/ProfileCreatorReducer';
 import { connect } from 'react-redux';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import FlatButton from 'material-ui/FlatButton';
+
 
  class ProfileImg extends Component {
   constructor(props) {
@@ -53,7 +56,6 @@ import { connect } from 'react-redux';
     console.log(this.props)
     return (
       <div>
-        <h1>Image Upload</h1>
 
         {this.state.imagePreview && <img src={this.state.imagePreview} />}
 
@@ -65,7 +67,7 @@ import { connect } from 'react-redux';
 					}}
         />
 
-        {/* <button onClick={this.handleUpload}> Handle Upload </button> */}
+        
       </div>
     );
   }
