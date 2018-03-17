@@ -18,25 +18,33 @@ import AutoComplete from 'material-ui/AutoComplete';
 
 
 class ProfileCreator extends Component {
-    constructor(){
-        super();
-        this.state = {
-            dataSource: [art, collage, photography]
-        };
-    }
-
-    handleUpdateInput = (value) => {
-        this.setState({
-          dataSource: [
-            value,
-            value + value,
-            value + value + value,
-          ],
-        });
-      };
     
-
+    
     render(){
+        const artTypes = [
+            'collage',
+            'photography',
+            'painting',
+            'textile',
+            'glass',
+            'new media',
+            'internet art',
+            'ceramics',
+            'music',
+            'mixed media',
+            'sound',
+            'programming',
+            'print making',
+            'installation art',
+            'found art',
+            'illustration',
+            'jewelry'
+        ]
+
+        const menuProps = {
+            desktop: true,
+            disableAutoFocus: true,
+          };
 
         const style = {
           marginLeft: 50,
@@ -69,9 +77,9 @@ class ProfileCreator extends Component {
       hintText="Let us contact you..."
       floatingLabelText="Email"
     /><br />
-    <AutoComplete dataSource={this.state.dataSource}
-          onUpdateInput={this.handleUpdateInput}
-    style={style} onChange={ ( e ) => getUserMediums( e.target.value ) }
+    <AutoComplete dataSource={artTypes}
+          menuProps={this.handleUpdateInput}
+    style={style} filter={AutoComplete.caseInsensitiveFilter} maxSearchResults={3} onChange={ ( e ) => getUserMediums( e.target.value ) }
       hintText="Art forms you work in..."
       floatingLabelText="Mediums"
     />
