@@ -8,7 +8,7 @@ import { getBarterInfo, getBarterName, getUserId, getItemId, getBarterImg, getBa
 import SubmitBarterBtn from './SubmitBarterBtn';
 import BarterImg from './BarterImg';
 import BarterDisplay from './BarterDisplay';
-
+import * as Colors from 'material-ui/styles/colors';
 
 
 

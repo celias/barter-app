@@ -51,6 +51,13 @@ const getProductData = (req, res, next) => {
     .catch((err) => {res.status(500).send}
 )}
 
+const addToFavorite = (req, res, next) => {
+    const db = req.app.get("db")
+    db.addToFavorites([req.params.id, req.user.id])
+    .then(user => {res.status(200).send(favorite)})
+    .catch((err) => {res.status(500).send})
+}
+
 // Inserting confirmed barters into the DB. Probably won't do anything else 
 // with this.
 const createConfirmedData = (req, res, next) => {
@@ -76,5 +83,6 @@ module.exports = {
     getBarterData,
     getUserBarter,
     getProductData,
-    createConfirmedData
+    createConfirmedData,
+    addToFavorite
 }

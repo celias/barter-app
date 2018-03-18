@@ -19,6 +19,8 @@ const port = process.env.PORT || 3001
 
 const app = express();
 
+
+
 const {
     CONNECTION_STRING,
     DOMAIN,
@@ -27,9 +29,12 @@ const {
     SESSION_SECRET
 } = process.env;
 
+// const client = require('twilio')(accountSid, authToken);
+// const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
 massive(process.env.CONNECTION_STRING)
-    .then(db => {
-        app.set("db", db);
+.then(db => {
+    app.set("db", db);
     })
     .catch(console.log);
 
@@ -100,6 +105,19 @@ app.post("/api/cart/checkout", shopCtrl.checkout);
 
 // SEND CART STUFF TO DB
 app.post("/api/createConfirmedBarter", userCtrl.createConfirmedData);
+
+
+app.post("/api/addToFavorites/:id", userCtrl.addToFavorite);
+
+// app.post('/sms', (req, res) => {
+//   const twiml = new MessagingResponse();
+
+//   twiml.message('The Robots are coming! Head for the hills!');
+
+//   res.writeHead(200, {'Content-Type': 'text/xml'});
+//   res.end(twiml.toString());
+// });
+
 
 
 ///\\\\ FOR PRODUCTION ///\\\\

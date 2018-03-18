@@ -27,22 +27,33 @@ class Product extends Component {
           })
         })
     }
+    
+    addToFav(id) {
+       axios.post(`/api/addToFavorites/${id}`)
+    }
+
 
     render(){
        let newProductData = this.state.productData.length > 0 && this.state.productData.map((curr, i) => {
            console.log(this.state, "STATE HERE")
+
+
            return(
                <div key={i}>
                    <div className="productContainer">
                    
                    <img src={this.state.productData[0].img} />
-                   <p>User: {this.state.productData[0].nick_name}</p>
-                   <img src={this.state.productData[0].profile_img} />
+                   
+    
                    <p>Item for barter: {this.state.productData[0].product_name}</p>
                    <p>Barter description: {this.state.productData[0].description}</p>
                    <p>Will trade for: {this.state.productData[0].wants}</p>
                    
                    <button onClick={() => this.props.addToCart(this.state.productData[0]).then(this.props.history.push('/cart'))}>Add to cart</button>
+                   <button onClick={() => this.addToFav(this.state.productData[0].product_id)}>Favorites</button>
+                   
+                
+
                    </div>
                    </div>
            )

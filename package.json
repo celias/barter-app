@@ -11,6 +11,7 @@
     "express-session": "^1.15.6",
     "firebase": "^4.10.1",
     "massive": "^4.7.0",
+    "material-design-icons": "^3.0.1",
     "material-ui": "^0.20.0",
     "nodemailer": "^4.6.3",
     "passport": "^0.4.0",
@@ -25,6 +26,7 @@
     "redux-promise-middleware": "^5.0.0",
     "styled-components": "^3.2.0",
     "sweetalert": "^2.1.0",
+    "twilio": "^3.13.1",
     "uigradients": "^0.2.1"
   },
   "scripts": {

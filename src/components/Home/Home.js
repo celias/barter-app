@@ -7,6 +7,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import './Home.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import * as Colors from 'material-ui/styles/colors';
+
 
 class Home extends Component {
   
@@ -14,6 +16,10 @@ class Home extends Component {
 
     const style = {
       margin: 5,
+      
+        buttonColor: Colors.deepOrangeA100
+
+     
     };
     
     
@@ -25,7 +31,7 @@ class Home extends Component {
        <h1 className="barter">b<span className="arter">{`{art}`}</span>er</h1>
        
        <MuiThemeProvider>
-            <a href={process.env.REACT_APP_LOGIN}> <RaisedButton label="LOGIN OR REGISTER" secondary={true} style={style} fullWidth={true} /></a>
+            <a href={process.env.REACT_APP_LOGIN}> <RaisedButton label="LOGIN OR REGISTER" secondary={false} style={style} fullWidth={true} disabledBackgroundColor={true} backgroundColor={style.buttonColor}/></a>
        </MuiThemeProvider>
 
         

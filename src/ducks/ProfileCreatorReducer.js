@@ -21,6 +21,7 @@ const initialProfileState = {
     cartData: [],
     // productData: {},
     cart: [],
+   
     
     // KEEPING TRACK OF USER FULFILLED BARTERS IN MY DB
     barterItemName: '',
@@ -49,6 +50,7 @@ const ADD_TO_CART = "ADD_TO_CART";
 const GET_CART_DATA = "GET_CART_DATA";
 const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 const CHECKOUT = "CHECKOUT";
+
 
 // DB RECORDS OF BARTERS
 const GET_BARTER_ITEM_NAME = "GET_BARTER_ITEM_NAME";
@@ -190,6 +192,7 @@ export default function profileReducer( state = initialProfileState, action ) {
 
         case GET_BARTER_IMG:
         return Object.assign({}, state, { barterImg: action.payload } );
+
 
         
         //DB BARTER DATA FOR FULFILLED SALES
@@ -376,6 +379,7 @@ export function addToCart( item ){
         .then( response => response.data )
     }
 }
+
 
 export function getCartData( item ){
     return{

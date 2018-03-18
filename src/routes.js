@@ -16,6 +16,7 @@ export default (
       <Route exact path="/" component={Home} />
       <Route path="/profilecreator" component={ProfileCreator} />
       <Route path="/userprofile" component={UserProfile} />
+      
       <Route path="/barter" component={BarterCreator} />
       <Route path="/profileform" component={ProfileForm} />
 
