@@ -8,56 +8,61 @@ import axios from 'axios';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {GridList, GridTile} from 'material-ui/GridList';
+import IconButton from 'material-ui/IconButton';
+import Subheader from 'material-ui/Subheader';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
 
 class MarketPlace extends Component {
     
     componentDidMount(){
-      this.props.getBarterData();
-  }
+        this.props.getBarterData();
+    }
     
-
+    
     render(){
+        
 
         const styles = {
             root: {
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'space-around',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-around',
             },
             gridList: {
-                width: 500,
-                height: 450,
-              overflowY: 'auto',
+              width: 500,
+              height: 450,
+            //   overflowY: 'auto',
             },
           };
 
 
 
-    // console.log(this.props.form.barterData, "HERE")
-    // let newBarterData = this.props.form.barterData.length > 0 && this.props.form.barterData.map((curr, i) => {
-    //     console.log(curr, "IS IT OVER YET")
-
-        const tilesData = this.props.form.barterData.length > 0 && this.props.form.barterData.map((curr, i) => {
+    console.log(this.props.form.barterData, "HERE")
+    let newBarterData = this.props.form.barterData.length > 0 && this.props.form.barterData.map((tile, i) => {
+        console.log(tile, "IS IT OVER YET")
     return (
         <div>
-     
+        
         <div style={styles.root}>
         <GridList
-      cellHeight={'auto'} cols={1} padding={1}
+      cellHeight={100} cols={'auto'} padding={1}
       style={styles.gridList}
     >
-    <GridTile>
-        <div key={i}>
-         <Link to={`/product/${curr.product_id}`}><img src={curr.img} /></Link>
-            <p>{curr.product_name}</p>
-            
-            <p>{curr.description}</p>
-            </div>
+    
+        <div>
+        <GridTile key={tile.img} title={tile.product_name} subtitle={tile.description} actionIcon={<IconButton><StarBorder color="white" actionPosition="left"
+          titlePosition="top"
+          titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+          cols={tile.featured ? 2 : 1}
+          rows={tile.featured ? 2 : 1} /></IconButton>}>
+        <Link to={`/product/${tile.product_id}`}><img src={tile.img} /></Link>
+        
         </GridTile>
+            </div>
     </GridList>
   </div>
-  
+    
     </div>
   
 
@@ -65,10 +70,7 @@ class MarketPlace extends Component {
     })
         return(
         <div> 
-            <MuiThemeProvider> 
-  
-             {tilesData}  
-            </MuiThemeProvider> 
+             {newBarterData}
             </div>
         )
     }
