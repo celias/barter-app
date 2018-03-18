@@ -79,7 +79,7 @@ class ProfileCreator extends Component {
     /><br />
     <AutoComplete dataSource={artTypes}
           menuProps={this.handleUpdateInput}
-    style={style} filter={AutoComplete.caseInsensitiveFilter} maxSearchResults={3} onChange={ ( e ) => getUserMediums( e.target.value ) }
+    style={style} filter={AutoComplete.caseInsensitiveFilter} maxSearchResults={3} animated={true} onChange={ ( e ) => getUserMediums( e.target.value ) }
       hintText="Art forms you work in..."
       floatingLabelText="Mediums"
     />
