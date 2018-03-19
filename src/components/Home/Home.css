@@ -52,12 +52,13 @@
   } */
  
 
-  @media screen and (min-width: 800px) {
+  @media screen and (max-width: 800px) {
     .barter{
       float: center;
-      object-fit: scale-down;
-      max-width: 100%;
-      height: auto;
+      /* object-fit: scale-down; */
+      /* max-width: 100%; */
+      /* height: auto; */
+      font-size: 4em
       }
       .loginContainer{
         object-fit: scale-down;
