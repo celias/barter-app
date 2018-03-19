@@ -56,15 +56,14 @@ class ProfileCreator extends Component {
         
         return (
 
-    <div>
+    <div className="bg">
   
   <MuiThemeProvider>
-    
+  <div>
     <TextField style={style} onChange={ ( e ) => getDisplayName( e.target.value ) }
       hintText="Username"
       floatingLabelText="Username"
     /><br />
-    <br />
     <TextField style={style} onChange={ ( e ) => getUserAbout( e.target.value ) }
         hintText="Tell others about yourself."
         floatingLabelText="Bio"
@@ -82,9 +81,7 @@ class ProfileCreator extends Component {
     style={style} filter={AutoComplete.caseInsensitiveFilter} maxSearchResults={3} animated={true} onChange={ ( e ) => getUserMediums( e.target.value ) }
       hintText="Art forms you work in..."
       floatingLabelText="Mediums"
-    />
-    
-    <br />
+    /><br />
     <TextField style={style} onChange={ ( e ) => getUserBarters( e.target.value ) }
       hintText="Tell us what you have!"
       floatingLabelText="Bartering?"
@@ -93,8 +90,8 @@ class ProfileCreator extends Component {
     <TextField style={style} onChange={ ( e ) => getUserWants( e.target.value ) }
       hintText="Tell us what you want?"
       floatingLabelText="Your wants..."
-    />
-    <br />
+    /><br />
+    </div>
     <Divider />
             <ProfileImg />
 
