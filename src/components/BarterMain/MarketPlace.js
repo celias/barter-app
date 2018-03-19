@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { getBarterData } from './../../ducks/ProfileCreatorReducer';
 import axios from 'axios';
 
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+
 
 import './MarketPlace.css';
 
@@ -22,12 +25,18 @@ class MarketPlace extends Component {
         let newBarterData = this.props.form.barterData.length > 0 && this.props.form.barterData.map((curr, i) => {
         return (
             // console.log(this.props.barterData, "IS IT OVER YET")
+            <Card style={{width: '200px', margin: '20px'}}>
+                <CardHeader
+                    title={curr.nick_name}
+                    subtitle={curr.location}
+                    avatar={curr.profile_img}
+                />
             <div key={i}>
-            <Link to={`/product/${curr.product_id}`}><img src={curr.img} /></Link>
-                <p>{curr.product_name}</p>
-                <p>{curr.description}</p>
-                <p>{curr.wants}</p>
+            <Link to={`/product/${curr.product_id}`}><img style={{width: '200px'}} src={curr.img} /></Link>
+            <CardTitle title={curr.product_name} subtitle={curr.description}/>
+
            </div>
+           </Card>
     
         )
         })
