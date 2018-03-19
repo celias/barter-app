@@ -42,18 +42,15 @@ class ProfileForm extends Component {
 
         
         return(
-            <Card>
-        <div>
-                <Card>
+            
+        
+                <Card style={{width: '200px', margin: '20px'}}>
+                   <CardHeader title={curr.nick_name} />
                 <div key={i}>
-                <img className="favImg" src={curr.img} />
+                <img  style={{width: '200px'}} src={curr.img} />
+                <CardTitle title={curr.product_name} subtitle={curr.description}/>
                 </div>
                 </Card>
-              
-            }
-          
-            </div>
-        </Card>
         )
     }
 )
@@ -61,31 +58,37 @@ class ProfileForm extends Component {
 
     return (
         <div>
-            <h1 className="words">{this.props.displayName}</h1>
-             <Divider />
-             <CardHeader>
-                    <p className="word">{this.props.userAbout}</p>
-                    
-                    <p className="word">{this.props.userLocation}</p>
-                    
-                    <p className="word">{this.props.userEmail}</p>
-                    
-                    <p className="word">{this.props.userMediums}</p>
-                    
-                    <p className="word">{this.props.userWants}</p>
+        <div className="profileCard" style={{width: '200px', margin: '20px'}}>
+            <Card>
+    
+             <CardHeader
+             title={this.props.displayName}
+             subtitle={this.props.userLocation}
+             avatar={this.props.userImg}/>
 
-                    <img className="pic" src={this.props.userImg} /> 
-                </CardHeader>
+             <CardTitle style={{width: '200px', margin: '20px'}} title={this.props.displayName} subtitle={this.props.userAbout}/>
+             <CardText>
+                 Will trade for: {this.props.userWants}
+                 <Divider /> 
+                 Contact me: {this.props.userEmail}
+                 </CardText>
+                </Card>
+
+          <div className="profileCard" style={{width: '200px', margin: '20px'}}>  
             {newFav}
+          </div>
+
+        </div>
         </div>
     )
 
 }
 
 }
- 
 function mapStateToProps( state ){
     return state.form
 }
+
+ 
 
 export default connect( mapStateToProps )( ProfileForm );

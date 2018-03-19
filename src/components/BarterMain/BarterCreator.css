@@ -1,11 +1,11 @@
 
 .header {
-background-image: url('https://images.unsplash.com/photo-1453653855050-2890d86bbadc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3f6a501d0922eb6447a4341b79ffdce5&auto=format&fit=crop&w=1350&q=80');
+background-image: url('https://images.unsplash.com/photo-1510843572979-e4b9e790fdd7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=238526856465b28e7372a88c82ee05d5&auto=format&fit=crop&w=1393&q=80');
 background-position: center center;
 background-repeat: no-repeat;
 object-fit: cover;
 background-size: cover;
-height: 1000px;
+height: 964px;
 }
 
 
@@ -26,7 +26,7 @@ height: 1000px;
 
 .input{
     font-family: monospace;
-    font-size: 30px;
+    font-size: 50px;
     display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -34,14 +34,14 @@ height: 1000px;
 	align-items: baseline;
     align-content: stretch;
     margin-top: 2%;
-    border: solid black 2px;
+   
     flex-basis: 300px;
     
 }
 
 .uploaders {
     font-family: monospace;
-    font-size: 30px;
+    font-size: 10px;
     display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
