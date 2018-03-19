@@ -50,3 +50,39 @@ height: 964px;
     align-content: stretch;
     margin-top: 2%;
 }
+
+@media screen and (max-width: 800px) {
+    .header {
+        float: center;
+        /* object-fit: scale-down; */
+        /* max-width: 100%; */
+        /* height: auto; */
+        font-size: 4em
+        }
+
+    .words{
+        font-size: 1.2rem; 
+    }
+
+    .uploaders {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: baseline;
+        align-content: stretch;
+        margin-top: 2%;
+    }
+
+    .uploaders {
+        font-size: 1rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: baseline;
+        align-content: stretch;
+        margin-top: 2%;
+    }
+
+}
