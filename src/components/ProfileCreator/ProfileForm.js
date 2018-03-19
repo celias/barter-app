@@ -31,9 +31,10 @@ class ProfileForm extends Component {
         })
     }
 
-
-
-    render(){
+    
+    render() {
+        // console.log(this.state.favorite);
+        let newFav = this.state.favorite.length > 0 && this.state.favorite.map((curr, i) =>{
         console.log(this.state.favorite, "FAV HERE")
 
     
@@ -43,9 +44,24 @@ class ProfileForm extends Component {
         return(
             <Card>
         <div>
-        
-            
-             <h1 className="words">{this.props.displayName}</h1>
+                <Card>
+                <div key={i}>
+                <img className="favImg" src={curr.img} />
+                </div>
+                </Card>
+              
+            }
+          
+            </div>
+        </Card>
+        )
+    }
+)
+
+
+    return (
+        <div>
+            <h1 className="words">{this.props.displayName}</h1>
              <Divider />
              <CardHeader>
                     <p className="word">{this.props.userAbout}</p>
@@ -60,25 +76,16 @@ class ProfileForm extends Component {
 
                     <img className="pic" src={this.props.userImg} /> 
                 </CardHeader>
-               
+            {newFav}
+        </div>
+    )
 
-              
-            {this.state.favorite.length > 0 &&
-            <Card>
-                <img className="favImg" src={this.state.favorite[0].img} />
-               </Card>
-            }
-          
-        
-                    
-                    
-            </div>
-            </Card>
-        )
-    }
-  }
-  function mapStateToProps( state ){
-      return state.form
-  }
+}
 
-  export default connect( mapStateToProps )( ProfileForm );
+}
+ 
+function mapStateToProps( state ){
+    return state.form
+}
+
+export default connect( mapStateToProps )( ProfileForm );

@@ -39,7 +39,8 @@ class MarketPlace extends Component {
            </Card>
     
         )
-        })
+        }
+    )
             return(
             <div className="barterContainer">  
                  {newBarterData}   
