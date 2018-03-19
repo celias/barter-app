@@ -1,14 +1,34 @@
 import React,  { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import axios from 'axios';
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 
 class ProfileForm extends Component {
+    constructor(){
+        super();
+
+        this.state = {
+            favorite: {}
+        }
+    }
+
+    componentDidMount(){
+        axios.get("/api/getFavs").then(response => {
+            console.log(response.data.favorite, "FAVE")
+            this.setState({
+                favorite: response.data
+            })
+        })
+    }
+
+
+
     render(){
+        console.log(this.state.favorite, "FAV HERE")
 
         const style = {
             height: 800,
@@ -19,10 +39,15 @@ class ProfileForm extends Component {
           };
 
 
-        console.log(this.props);
+        
         return(
             <div>
         <div>
+            {this.state.favorite.length > 0 &&
+            <div>
+                <img src={this.state.favorite[0].img} />
+               </div>
+            }
         <MuiThemeProvider>
             <Paper style={style} zDepth={3}>
              <h1>{this.props.displayName}</h1>

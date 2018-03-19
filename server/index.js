@@ -108,6 +108,7 @@ app.post("/api/createConfirmedBarter", userCtrl.createConfirmedData);
 
 
 app.post("/api/addToFavorites/:id", userCtrl.addToFavorite);
+app.get("/api/getFavs", userCtrl.getFavs);
 
 // app.post('/sms', (req, res) => {
 //   const twiml = new MessagingResponse();

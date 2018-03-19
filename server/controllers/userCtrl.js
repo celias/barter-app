@@ -54,7 +54,14 @@ const getProductData = (req, res, next) => {
 const addToFavorite = (req, res, next) => {
     const db = req.app.get("db")
     db.addToFavorites([req.params.id, req.user.id])
-    .then(user => {res.status(200).send(favorite)})
+    .then(user => {res.status(200).send(user)})
+    .catch((err) => {res.status(500).send})
+}
+
+const getFavs = (req, res, next) => {
+    const db = req.app.get("db")
+    db.getFav([req.user.id])
+    .then(user => {res.status(200).send(user)})
     .catch((err) => {res.status(500).send})
 }
 
@@ -84,5 +91,6 @@ module.exports = {
     getUserBarter,
     getProductData,
     createConfirmedData,
-    addToFavorite
+    addToFavorite,
+    getFavs
 }

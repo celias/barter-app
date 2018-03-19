@@ -52,6 +52,7 @@ class Cart extends Component {
                     <p>{this.state.cartData[0].wants}</p>
                     <p>{this.state.cartData[0].email}</p>
 
+
                 </div>
                 }
                 </div>
