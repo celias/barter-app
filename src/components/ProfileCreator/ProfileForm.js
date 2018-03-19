@@ -5,6 +5,9 @@ import axios from 'axios';
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import Divider from 'material-ui/Divider';
+import './ProfileForm.css';
+
 
 
 class ProfileForm extends Component {
@@ -43,21 +46,28 @@ class ProfileForm extends Component {
         return(
             <div>
         <div>
-            {this.state.favorite.length > 0 &&
-            <div>
-                <img src={this.state.favorite[0].img} />
-               </div>
-            }
         <MuiThemeProvider>
             <Paper style={style} zDepth={3}>
-             <h1>{this.props.displayName}</h1>
-                <br />
-                    <p>{this.props.userAbout}</p>
-                    <p>{this.props.userLocation}</p>
-                    <p>{this.props.userEmail}</p>
-                    <p>{this.props.userMediums}</p>
-                    <p>{this.props.userWants}</p>
-                    <img src={this.props.userImg} /> 
+             <h1 className="words">{this.props.displayName}</h1>
+             <Divider />
+                    <p className="word">{this.props.userAbout}</p>
+                    <Divider />
+                    <p className="word">{this.props.userLocation}</p>
+                    <Divider />
+                    <p className="word">{this.props.userEmail}</p>
+                    <Divider />
+                    <p className="word">{this.props.userMediums}</p>
+                    <Divider />
+                    <p className="word">{this.props.userWants}</p>
+                    <img className="pic" src={this.props.userImg} /> 
+                </Paper>
+
+            <Paper style={style} zDepth={3}>    
+            {this.state.favorite.length > 0 &&
+            <div>
+                <img className="favImg" src={this.state.favorite[0].img} />
+               </div>
+            }
             </Paper>
         </MuiThemeProvider>
                     

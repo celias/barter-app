@@ -9,30 +9,46 @@ import SubmitBarterBtn from './SubmitBarterBtn';
 import BarterImg from './BarterImg';
 import BarterDisplay from './BarterDisplay';
 import * as Colors from 'material-ui/styles/colors';
+import Divider from 'material-ui/Divider';
+import Paper from 'material-ui/Paper';
+import TextField from 'material-ui/TextField';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import './BarterCreator.css';
 
+import RaisedButton from 'material-ui/RaisedButton';
 
 class BarterCreator extends Component {
     render(){
     console.log(this.props);
     const { getBarterInfo, getBarterName, getBarterImg } = this.props;
+
+    const style = {
+        marginLeft: 50,
+      };
+
+
+
     return (
-        <div>
+        <div className="header">
        
-            <h1>You are at the barter page</h1>
+            <h3 className="words">Post your barter here...</h3>
             
-            <div className="imgUploader">
+            
+                <div className="input">
+                <TextField style={style} hintText="Item for barter."
+      floatingLabelText="name" onChange={ ( e ) => getBarterName( e.target.value ) } />
+                <TextField style={style} hintText="Short description."
+      floatingLabelText="description"  onChange={ ( e ) => getBarterInfo( e.target.value ) } />
+                  </div>  
+
+                  <div className="uploaders">
                 <BarterImg />
-                
-                <p> What are you bartering?{" "}<input type="text" placeholder="item name" onChange={ ( e ) => getBarterName( e.target.value ) } /></p>
-                <input type="text" placeholder="item description" onChange={ ( e ) => getBarterInfo( e.target.value ) } />
-                    
-                 <SubmitBarterBtn />
-            </div>
+               <SubmitBarterBtn />
+                 </div>
             
-            <p>Here are your barters below</p>
-                 
-                 <BarterDisplay />
+            
+         
             
         </div>
     

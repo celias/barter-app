@@ -15,3 +15,14 @@
     font-family: monospace;
     white-space: nowrap;
   } */
+
+  .navbar {
+    width: 100%
+  }
+
+  @media (min-width: 640px) {
+    .navbar{
+       width:100%;
+       
+      }
+    }

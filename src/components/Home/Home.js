@@ -30,9 +30,9 @@ class Home extends Component {
        <div className="logo">
        <h1 className="barter">b<span className="arter">{`{art}`}</span>er</h1>
        
-       <MuiThemeProvider>
-            <a href={process.env.REACT_APP_LOGIN}> <RaisedButton label="LOGIN OR REGISTER" secondary={false} style={style} fullWidth={true} disabledBackgroundColor={true} backgroundColor={style.buttonColor}/></a>
-       </MuiThemeProvider>
+       
+            <a href={process.env.REACT_APP_LOGIN}> <RaisedButton className="logo" label="LOGIN OR REGISTER" secondary={false} style={style} fullWidth={true} disabledBackgroundColor={true} backgroundColor={style.buttonColor}/></a>
+      
 
         
        </div>

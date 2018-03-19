@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { getUserBarter } from './../../ducks/ProfileCreatorReducer';
 
-
+import RaisedButton from 'material-ui/RaisedButton';
 
 class SubmitBarterBtn extends Component {
     constructor(){
@@ -21,14 +21,18 @@ class SubmitBarterBtn extends Component {
                 itemId, 
                 barterImg } = this.props;
 
+                const bstyle = {
+                    margin: 10,
+                 };
+
       return(
           <div>
               <Link to="/marketplace"> 
-                <button onClick={() => this.props.getUserBarter(barterInfo, 
+                <RaisedButton label="Submit" secondary={true} style={bstyle} onClick={() => this.props.getUserBarter(barterInfo, 
                 barterName, 
                 userId, 
                 itemId, 
-                barterImg)}>Submit Barter</button>
+                barterImg)} />
             </Link>
             </div>
       )

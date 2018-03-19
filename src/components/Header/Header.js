@@ -11,6 +11,8 @@ import AppBar from 'material-ui/AppBar';
 import Divider from 'material-ui/Divider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import * as Colors from 'material-ui/styles/colors';
+import './Header.css';
+
 class Header extends Component {
 
   constructor(props) {
@@ -37,11 +39,14 @@ class Header extends Component {
     return (
     <div>
       <MuiThemeProvider>
-        <AppBar title={<span style={titleStyles.title}>b a r t e r.</span>} titleStyle={titleStyles.color}
+        
+        <AppBar className="navbar" style={{width: '100%'}} title={<span style={titleStyles.title}>b a r t e r.</span>} titleStyle={titleStyles.color}
           label="MENU"
           onClick={this.handleToggle}
         />
+        
         <Drawer open={this.state.open}>
+        
         
           <MenuItem onClick={this.handleClose}><Link to="/">
           <a>Home</a>

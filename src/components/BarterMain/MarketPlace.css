@@ -1,13 +1,42 @@
 .barterContainer {
 	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
+    font-family: monospace;
+	color: black;
+	margin-left: 5%;
+}
+
+.barterItem {
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	align-content: center;
-    font-family: monospace;
-    color: black;
+	align-content: flex-end;
+	margin-left: 20%;
+	padding: 20px;
+	
 }
+
+/* @media (min-width: 640px) {
+    .barterItem{
+       max-width: 600px;
+	   height: auto;
+	   margin-right: auto;
+	   display: inline-block;
+	   align-items: center;
+	   object-fit: contain;
+	   margin:2%;
+	   padding: 40px;
+	   background-position: center center;
+
+	   
+	  }
+	  .barterContainer{
+		margin: auto;
+		
+	  }
+	  
+    } */
 
 /* .profilePic{
 	width: 70px;

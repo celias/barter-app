@@ -1,0 +1,37 @@
+.words {
+    font-family: monospace;
+    font-size: 30px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: baseline;
+    align-content: stretch;  
+}
+
+.word {
+    font-family: monospace;
+    font-size: 20px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: baseline;
+    align-content: stretch;  
+}
+
+.pic {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: baseline;
+    align-content: stretch;
+    margin-left: 9%;
+    margin-top: 1%;
+    padding: 10px;
+}
+
+.favImg {
+    width: 200px;
+}
