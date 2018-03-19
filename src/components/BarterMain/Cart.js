@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 
 import { getCartData, createConfirmedData, getUserBarter } from '../../ducks/ProfileCreatorReducer';
 
-
+import './Cart.css';
 import swal from 'sweetalert';
+
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
 class Cart extends Component {
     constructor(){
@@ -40,13 +43,15 @@ class Cart extends Component {
             //     purchaseDate, 
             //     tradedFor, barterInfo, barterName, userId, barterImg, itemId)
             return (
+                <Card>
+                    <CardHeader />
                 <div>
                    
                 <div>
                 {this.state.cartData.length > 0 &&
                     
                     // <p> HERE IS STUFF IN YOUR CART </p>
-                    <div>
+                    <div className="cart">
                     <img src={this.state.cartData[0].img} />
                     <p>{this.state.cartData[0].product_name}</p>
                     <p>{this.state.cartData[0].wants}</p>
@@ -56,10 +61,11 @@ class Cart extends Component {
                 </div>
                 }
                 </div>
-                <button onClick={() => this.props.createConfirmedData(this.state.cartData[0].product_name, 
+                <FlatButton label="Confirm Barter" secondary={true} onClick={() => this.props.createConfirmedData(this.state.cartData[0].product_name, 
             this.state.cartData[0].wants, this.state.cartData[0].product_id, this.state.cartData[0].user_id, this.state.cartData[0].description, this.state.cartData[0].img )
-            .then(swal("Barter confirmed! Lister of barter will reach out to you shortly! Happy trading!"))}>Confirm Barter</button>
+            .then(swal("Barter confirmed! Trader will reach out to you shortly!"))} />
             </div>
+            </Card>
         )
         
     }

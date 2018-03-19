@@ -10,6 +10,9 @@ import './Product.css';
 
 import { addToCart } from '../../ducks/ProfileCreatorReducer';
 
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+
 class Product extends Component {
     constructor() {
         super();
@@ -39,28 +42,35 @@ class Product extends Component {
 
 
            return(
+            <Card style={{width: '800px'}}>
+            <CardHeader
+                    title={this.state.productData[0].product_name}
+                    subtitle={this.state.productData[0].description}
+                    avatar={curr.profile_img}
+                />
                <div key={i}>
-                   <div className="productContainer">
                    
-                   <img src={this.state.productData[0].img} />
+                   
+                   <img style={{width: '800px'}} src={this.state.productData[0].img} />
                    
     
-                   <p>Item for barter: {this.state.productData[0].product_name}</p>
-                   <p>Barter description: {this.state.productData[0].description}</p>
-                   <p>Will trade for: {this.state.productData[0].wants}</p>
                    
-                   <button onClick={() => this.props.addToCart(this.state.productData[0]).then(this.props.history.push('/cart'))}>Add to cart</button>
-                   <button onClick={() => this.addToFav(this.state.productData[0].product_id)}>Favorites</button>
+                   
+                   <CardTitle title={this.state.productData[0].product_name} subtitle={this.state.productData[0].wants}/>
+
+                   <FlatButton label="TRADE" primary={true} onClick={() => this.props.addToCart(this.state.productData[0]).then(this.props.history.push('/cart'))} />
+                   <FlatButton label="FAVORITE" secondary={true} onClick={() => this.addToFav(this.state.productData[0].product_id)} />
                    
                 
 
+                   
                    </div>
-                   </div>
+                </Card>
            )
         })
 
         return (
-            <div>
+            <div className="productContainer">
               
                 {newProductData}
             </div>

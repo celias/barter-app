@@ -22,16 +22,14 @@
 
 .pic {
     display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: baseline;
     align-content: stretch;
-    margin-left: 9%;
-    margin-top: 1%;
-    padding: 10px;
+    
 }
 
-.favImg {
+/* .favImg {
     width: 200px;
-}
+} */
