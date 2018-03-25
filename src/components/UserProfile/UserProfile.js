@@ -8,10 +8,10 @@ class UserProfile extends Component {
         this.props.getUser().then(response => {
             if(this.props.name) {
                 console.log("hit if")
-                this.props.history.push('/barter')
+                this.props.history.push('/profilecreator')
             } else {
                 console.log("hit else")
-                this.props.history.push('/profilecreator')
+                this.props.history.push('/marketplace')
             }
         })
     }

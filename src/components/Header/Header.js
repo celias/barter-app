@@ -48,18 +48,18 @@ class Header extends Component {
         <Drawer open={this.state.open}>
         
         
-          <MenuItem onClick={this.handleClose}><Link to="/">
+        <MenuItem onClick={this.handleClose}><Link to="/">
           <a>Home</a>
         </Link></MenuItem>
-        <Divider />
-          <MenuItem onClick={this.handleClose}><Link to="/profilecreator">
+           <Divider />
+        <MenuItem onClick={this.handleClose}><Link to="/profilecreator">
           <a>Update Profile</a>
         </Link></MenuItem>
-        <Divider />
+            <Divider />
         <MenuItem onClick={this.handleClose}><Link to="/profileform">
           <a>Profile</a>
         </Link></MenuItem>
-        <Divider />
+            <Divider />
         <MenuItem onClick={this.handleClose}><Link to="/barter">
           <a>Barter</a>
         </Link></MenuItem>
@@ -67,12 +67,12 @@ class Header extends Component {
         <MenuItem onClick={this.handleClose}><Link to="/marketplace">
           <a>Collection</a>
         </Link></MenuItem>
-        <Divider />
+            <Divider />
         <MenuItem onClick={this.handleClose}><Link to="/cart">
           <a>Cart</a>
         </Link></MenuItem>
         
-        </Drawer>
+            </Drawer>
       </MuiThemeProvider>
       
   </div>
