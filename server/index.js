@@ -44,7 +44,7 @@ app.use(cors());
 
 //\\FOR PRODUCTION//\\
 
-// app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/../build`));
 
 app.use(
     session({
@@ -123,9 +123,9 @@ app.get("/api/getFavs", userCtrl.getFavs);
 
 ///\\\\ FOR PRODUCTION ///\\\\
 
-// app.get('*', (req, res) =>{
-//     res.sendFile(path.join(__dirname, '../build/index.html'));
-// });
+app.get('*', (req, res) =>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 
 app.listen(port, () => {

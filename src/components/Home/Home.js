@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import { getUser } from './../../ducks/UserReducer';
 import RaisedButton from 'material-ui/RaisedButton';
+import './../../assets/bart.jpg';
 
 import './Home.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

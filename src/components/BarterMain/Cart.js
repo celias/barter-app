@@ -15,7 +15,8 @@ class Cart extends Component {
         super();
 
         this.state = {
-            cartData: {}
+            cartData: {},
+          
         }
     }
 
@@ -35,13 +36,8 @@ class Cart extends Component {
             purchaseDate, 
             tradedFor, barterInfo, barterName, userId, barterImg, itemId } = this.props;
         
-            
-            
-            
-            //     console.log(barterItemName, 
-            //     barterUserName, 
-            //     purchaseDate, 
-            //     tradedFor, barterInfo, barterName, userId, barterImg, itemId)
+        const purchased = this.state.purchaseConfirmed;
+
             return (
                 <Card>
                     <CardHeader />
@@ -61,9 +57,12 @@ class Cart extends Component {
                 </div>
                 }
                 </div>
+               
                 <FlatButton label="Confirm Barter" secondary={true} onClick={() => this.props.createConfirmedData(this.state.cartData[0].product_name, 
             this.state.cartData[0].wants, this.state.cartData[0].product_id, this.state.cartData[0].user_id, this.state.cartData[0].description, this.state.cartData[0].img )
             .then(swal("Barter confirmed! Trader will reach out to you shortly!"))} />
+    
+         
             </div>
             </Card>
         )
