@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
-import AppBar from 'material-ui/AppBar';
+
 import Divider from 'material-ui/Divider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import * as Colors from 'material-ui/styles/colors';
@@ -40,7 +40,7 @@ class Header extends Component {
     <div>
       <MuiThemeProvider>
         
-        <AppBar className="navbar" style={{width: '100%'}} title={<span style={titleStyles.title}>b a r t e r.</span>} titleStyle={titleStyles.color}
+        <RaisedButton className="navbar" style={{width: '100%'}} title={<span style={titleStyles.title}>MENU</span>} titleStyle={titleStyles.color}
           label="MENU"
           onClick={this.handleToggle}
         />
