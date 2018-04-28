@@ -29,7 +29,7 @@ class Home extends Component {
       <div className="loginContainer">
     
        <div className="logo">
-       <h1 className="barter">b art er</h1>
+       <h1 className="barter">barter.</h1>
        
        
             <a href={process.env.REACT_APP_LOGIN}> <RaisedButton className="logo" label="LOGIN OR REGISTER" secondary={false} style={style} fullWidth={true} disabledBackgroundColor={true} backgroundColor={style.buttonColor}/></a>
