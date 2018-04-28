@@ -16,8 +16,7 @@
   object-fit: cover;
   background-size: cover;
   height: 1000px;
-  -webkit-clip-path: polygon(82% 0, 40% 67%, 0 67%, 0 0);
-clip-path: polygon(82% 0, 40% 67%, 0 67%, 0 0);
+
   
 
 }
