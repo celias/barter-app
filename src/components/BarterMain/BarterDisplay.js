@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import Header from './../Header/Header';
 
 
 class BarterDisplay extends Component {
@@ -11,6 +11,7 @@ class BarterDisplay extends Component {
 
         return(
             <div>
+                <Header />
                 <img src={this.props.form.barterImg} />
                 <h1>{this.props.form.barterName}</h1>
                 <h1>{this.props.form.barterInfo}</h1>

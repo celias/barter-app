@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import Header from './../Header/Header';
 
 import axios from 'axios';
 
@@ -71,7 +71,7 @@ class Product extends Component {
 
         return (
             <div className="productContainer">
-              
+              <Header />
                 {newProductData}
             </div>
         )

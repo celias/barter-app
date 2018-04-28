@@ -13,7 +13,7 @@ import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import Header from './../Header/Header';
 import './BarterCreator.css';
 
 import RaisedButton from 'material-ui/RaisedButton';
@@ -31,7 +31,7 @@ class BarterCreator extends Component {
 
     return (
         <div className="header">
-       
+       <Header />
             <h3 className="words">Post your barter here...</h3>
             
             

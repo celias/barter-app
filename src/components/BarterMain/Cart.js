@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-
+import Header from './../Header/Header';
 import { getCartData, createConfirmedData, getUserBarter } from '../../ducks/ProfileCreatorReducer';
 
 import './Cart.css';
@@ -39,6 +39,8 @@ class Cart extends Component {
         const purchased = this.state.purchaseConfirmed;
 
             return (
+                <div>
+                    <Header />
                 <Card>
                     <CardHeader />
                 <div>
@@ -65,6 +67,7 @@ class Cart extends Component {
          
             </div>
             </Card>
+            </div>
         )
         
     }
