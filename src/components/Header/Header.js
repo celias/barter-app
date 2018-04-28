@@ -49,27 +49,27 @@ class Header extends Component {
         
         
         <MenuItem onClick={this.handleClose}><Link to="/">
-          <a>Home</a>
+          <a>LOGOUT</a>
         </Link></MenuItem>
            <Divider />
         <MenuItem onClick={this.handleClose}><Link to="/profilecreator">
-          <a>Update Profile</a>
+          <a>UPDATE PROFILE</a>
         </Link></MenuItem>
             <Divider />
         <MenuItem onClick={this.handleClose}><Link to="/profileform">
-          <a>Profile</a>
+          <a>PROFILE</a>
         </Link></MenuItem>
             <Divider />
         <MenuItem onClick={this.handleClose}><Link to="/barter">
-          <a>Barter</a>
+          <a>CREATE BARTER</a>
         </Link></MenuItem>
         <Divider />
         <MenuItem onClick={this.handleClose}><Link to="/marketplace">
-          <a>Collection</a>
+          <a>MARKETPLACE</a>
         </Link></MenuItem>
             <Divider />
         <MenuItem onClick={this.handleClose}><Link to="/cart">
-          <a>Cart</a>
+          <a>CART</a>
         </Link></MenuItem>
         
             </Drawer>

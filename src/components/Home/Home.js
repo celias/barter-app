@@ -32,7 +32,7 @@ class Home extends Component {
        <h1 className="barter">barter.</h1>
        
        
-            <a href={process.env.REACT_APP_LOGIN}> <RaisedButton className="logo" label="LOGIN OR REGISTER" secondary={false} style={style} fullWidth={true} disabledBackgroundColor={true} backgroundColor={style.buttonColor}/></a>
+            <a href={process.env.REACT_APP_LOGIN}> <RaisedButton className="logo" label="BARTER TODAY" secondary={false} style={style} fullWidth={true} disabledBackgroundColor={true} backgroundColor={style.buttonColor}/></a>
       
 
         

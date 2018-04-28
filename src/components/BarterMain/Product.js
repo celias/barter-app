@@ -42,6 +42,8 @@ class Product extends Component {
 
 
            return(
+               <div>
+                   <Header />
             <Card style={{width: '800px'}}>
             <CardHeader
                     title={this.state.productData[0].product_name}
@@ -66,12 +68,13 @@ class Product extends Component {
                    
                    </div>
                 </Card>
+                </div>
            )
         })
 
         return (
             <div className="productContainer">
-              <Header />
+              
                 {newProductData}
             </div>
         )
