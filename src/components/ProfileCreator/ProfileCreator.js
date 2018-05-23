@@ -3,19 +3,12 @@ import { connect } from 'react-redux';
 import { getDisplayName, getUserAbout, getUserLocation, getUserEmail, getUserMediums, getUserBarters, getUserWants, getUserImg } from './../../ducks/ProfileCreatorReducer.js';
 import SubmitBtnHome from './../SubmitBtn/SubmitBtnHome';
 import ProfileImg from './ProfileImg';
-
 import './ProfileCreator.css';
-
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
 import AutoComplete from 'material-ui/AutoComplete';
-
-
-
-
 
 class ProfileCreator extends Component {
     
@@ -94,13 +87,9 @@ class ProfileCreator extends Component {
     </div>
     <Divider />
             <ProfileImg />
-
-  </MuiThemeProvider>
-                
-    
-                <SubmitBtnHome />
-                
-           </div>
+</MuiThemeProvider>
+            <SubmitBtnHome />
+      </div>
         )
     }
 }

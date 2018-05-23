@@ -10,30 +10,23 @@ import MarketPlace from "./components/BarterMain/MarketPlace";
 import Product from "./components/BarterMain/Product";
 import Cart from './components/BarterMain/Cart';
 
-
 export default (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/profilecreator" component={ProfileCreator} />
       <Route path="/userprofile" component={UserProfile} />
-      
       <Route path="/barter" component={BarterCreator} />
       <Route path="/profileform" component={ProfileForm} />
-
       <Route path="/marketplace" component={MarketPlace} />
       <Route path="/product/:id" component={Product} />
       <Route path="/cart" component={Cart} />
     
-      
-      
-      
-        path="*"
+      path="*"
         render={() => (
             <div>
-                <h1>Not Found</h1>
+                <h1>404 PAGE NOT FOUND.</h1>
                 </div>
         )}
         />
     </Switch>
-
-  );
+);

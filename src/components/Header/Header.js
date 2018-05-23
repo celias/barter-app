@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-
 import { Link } from 'react-router-dom';
-
-
-
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';

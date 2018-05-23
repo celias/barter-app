@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import { getUserUpdate } from './../../ducks/ProfileCreatorReducer';
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
-
 
 class SubmitBtnHome extends Component {
     constructor(){
         super();
-
     }
     
     render(){

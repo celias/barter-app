@@ -3,18 +3,15 @@ import firebase from './../../fire';
 import axios from 'axios';
 import { getUserImg } from './../../ducks/ProfileCreatorReducer';
 import { connect } from 'react-redux';
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 
-
- class ProfileImg extends Component {
+class ProfileImg extends Component {
   constructor(props) {
     super(props);
     this.state = { file: '', imagePreview: '' };
 
     this.handlePreview = this.handlePreview.bind(this);
-    // this.handleUpload = this.handleUpload.bind(this);
   }
 
   handlePreview(file) {
@@ -42,16 +39,10 @@ import FlatButton from 'material-ui/FlatButton';
       (error) => {},
       (success) => {
         console.log(uploadTask.snapshot.downloadURL)
-        // console.log(this.props.getUserImg(uploadTask.snapshot.downloadURL))
         this.props.getUserImg(uploadTask.snapshot.downloadURL)
-          // axios.put("/api/getUserImg", { userImg: uploadTask.snapshot.downloadURL })
-          // .then(response => response.data)
-          // .catch(console.log)
-        // console.log(uploadTask.snapshot.downloadURL); // make put request
       },
     );
   }
-
   render() {
     console.log(this.props)
     return (
@@ -66,9 +57,7 @@ import FlatButton from 'material-ui/FlatButton';
             this.handlePreview(event.target.files)
 					}}
         />
-
-        
-      </div>
+  </div>
     );
   }
 }
@@ -78,6 +67,5 @@ function mapStateToProps( state ){
     form: state.form
   }
 }
-
 
 export default connect( mapStateToProps, { getUserImg } )( ProfileImg );

@@ -7,8 +7,6 @@ const passport = require("passport");
 const massive = require("massive");
 const Auth0Strategy = require('passport-auth0');
 const path = require("path");
-
-
 const checkForSession = require('./middlewares/checkForSession');
 
 const mainCtrl = require('./controllers/mainCtrl');
@@ -19,8 +17,6 @@ const port = process.env.PORT || 3001
 
 const app = express();
 
-
-
 const {
     CONNECTION_STRING,
     DOMAIN,
@@ -28,9 +24,6 @@ const {
     CLIENT_SECRET,
     SESSION_SECRET
 } = process.env;
-
-// const client = require('twilio')(accountSid, authToken);
-// const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 massive(process.env.CONNECTION_STRING)
 .then(db => {
@@ -42,8 +35,7 @@ massive(process.env.CONNECTION_STRING)
 app.use(json());
 app.use(cors());
 
-//\\FOR PRODUCTION//\\
-
+// FOR PRODUCTION 
 app.use(express.static(`${__dirname}/../build`));
 
 app.use(
@@ -52,13 +44,12 @@ app.use(
         resave: false,
         saveUninitialized: false, 
         cookie: {
-            maxAge: 1000000
+            maxAge: 8000
         }
     })
 );
 
 app.use( checkForSession );
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new Auth0Strategy({
@@ -71,7 +62,7 @@ passport.use(new Auth0Strategy({
 (accessToken, refreshToken, extraParams, profile, done) => {
     // console.log(profile);
     app
-      .get('db') // fetch the reference to my database and then fetch from my database
+      .get('db')
       .getUserByAuthid(profile.id)
       .then(response => {
           console.log(response)
@@ -87,7 +78,6 @@ passport.use(new Auth0Strategy({
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
-
 
 app.get("/auth", mainCtrl.login)
 app.get('/api/user', userCtrl.getUser);
@@ -106,27 +96,13 @@ app.post("/api/cart/checkout", shopCtrl.checkout);
 // SEND CART STUFF TO DB
 app.post("/api/createConfirmedBarter", userCtrl.createConfirmedData);
 
-
 app.post("/api/addToFavorites/:id", userCtrl.addToFavorite);
 app.get("/api/getFavs", userCtrl.getFavs);
 
-// app.post('/sms', (req, res) => {
-//   const twiml = new MessagingResponse();
-
-//   twiml.message('The Robots are coming! Head for the hills!');
-
-//   res.writeHead(200, {'Content-Type': 'text/xml'});
-//   res.end(twiml.toString());
-// });
-
-
-
-///\\\\ FOR PRODUCTION ///\\\\
-
+// ALSO FOR PRODUCTION 
 app.get('*', (req, res) =>{
     res.sendFile(path.join(__dirname, '../build/index.html'));
 });
-
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);

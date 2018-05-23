@@ -3,10 +3,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import Header from './../Header/Header';
 import { getCartData, createConfirmedData, getUserBarter } from '../../ducks/ProfileCreatorReducer';
-
 import './Cart.css';
 import swal from 'sweetalert';
-
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -47,15 +45,11 @@ class Cart extends Component {
                    
                 <div>
                 {this.state.cartData.length > 0 &&
-                    
-                    // <p> HERE IS STUFF IN YOUR CART </p>
                     <div className="cart">
                     <img src={this.state.cartData[0].img} />
                     <p>{this.state.cartData[0].product_name}</p>
                     <p>{this.state.cartData[0].wants}</p>
                     <p>{this.state.cartData[0].email}</p>
-
-
                 </div>
                 }
                 </div>
@@ -63,9 +57,7 @@ class Cart extends Component {
                 <FlatButton label="Confirm Barter" secondary={true} onClick={() => this.props.createConfirmedData(this.state.cartData[0].product_name, 
             this.state.cartData[0].wants, this.state.cartData[0].product_id, this.state.cartData[0].user_id, this.state.cartData[0].description, this.state.cartData[0].img )
             .then(swal("Barter confirmed! Trader will reach out to you shortly!"))} />
-    
-         
-            </div>
+        </div>
             </Card>
             </div>
         )
@@ -73,13 +65,10 @@ class Cart extends Component {
     }
  }
 
-
- function mapStateToProps(state){
+function mapStateToProps(state){
     return{
         state
     }
   }
     
-
-
- export default connect( mapStateToProps, { getCartData, createConfirmedData, getUserBarter } )( Cart )
+export default connect( mapStateToProps, { getCartData, createConfirmedData, getUserBarter } )( Cart )

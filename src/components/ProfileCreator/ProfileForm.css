@@ -1,39 +1,3 @@
-/* .words {
-    font-family: monospace;
-    font-size: 30px;
-    display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: baseline;
-    align-content: stretch;  
-}
-
-.word {
-    font-family: monospace;
-    font-size: 20px;
-    display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: baseline;
-    align-content: stretch;  
-}
-
-.pic {
-    display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: baseline;
-    align-content: stretch;
-    
-} */
-
-/* .favImg {
-    width: 200px;
-} */
-
 .favCard{
 	display: flex;
 	flex-wrap: wrap;

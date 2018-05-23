@@ -2,16 +2,11 @@ import React,  { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
 import Divider from 'material-ui/Divider';
 import './ProfileForm.css';
-
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-
-
 
 class ProfileForm extends Component {
     constructor(){
@@ -54,8 +49,6 @@ class ProfileForm extends Component {
         )
     }
 )
-
-
     return (
         <div>
         <div className="profileCard" style={{width: '200px', margin: '20px'}}>
@@ -88,7 +81,5 @@ class ProfileForm extends Component {
 function mapStateToProps( state ){
     return state.form
 }
-
- 
 
 export default connect( mapStateToProps )( ProfileForm );

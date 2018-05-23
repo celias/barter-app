@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-
 import { getUserBarter } from './../../ducks/ProfileCreatorReducer';
-
 import RaisedButton from 'material-ui/RaisedButton';
 
 class SubmitBarterBtn extends Component {
     constructor(){
        super();
  }
-
-
     render() {
-        console.log(this.props)
+        
         const { barterInfo, 
                 barterName, 
                 userId, 

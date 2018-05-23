@@ -1,4 +1,3 @@
-
 import { default as fb } from 'firebase';
 
 const config = {

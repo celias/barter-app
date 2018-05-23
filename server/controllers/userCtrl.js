@@ -1,4 +1,3 @@
-
 const getUser = (req, res, next) => {
     // console.log(req.user)
     const db = req.app.get("db")
@@ -65,8 +64,6 @@ const getFavs = (req, res, next) => {
     .catch((err) => {res.status(500).send})
 }
 
-// Inserting confirmed barters into the DB. Probably won't do anything else 
-// with this.
 const createConfirmedData = (req, res, next) => {
     const db = req.app.get("db")
 
@@ -78,10 +75,6 @@ const createConfirmedData = (req, res, next) => {
     })
     .catch((err) => {console.log(err); res.status(500).send}
 )}
-
-
-
-
 
 module.exports = {
     getUser,

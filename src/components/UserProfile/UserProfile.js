@@ -27,5 +27,3 @@ class UserProfile extends Component {
 const mapStateToProps = state => state.form;
 
 export default withRouter(connect(mapStateToProps, { getUser })(UserProfile));
-
-

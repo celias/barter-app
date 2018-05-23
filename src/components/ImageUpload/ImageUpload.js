@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-
 import firebase from './../../fire';
-
-import './ImageUpload.css';
-
 
  class ImageUpload extends Component {
   constructor(props) {
@@ -37,11 +33,10 @@ import './ImageUpload.css';
       },
       (error) => {},
       (success) => {
-        console.log(uploadTask.snapshot.downloadURL); // make put request
+        console.log(uploadTask.snapshot.downloadURL);
       },
     );
   }
-
   render() {
     return (
       <div>

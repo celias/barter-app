@@ -4,19 +4,14 @@ import axios from 'axios';
 import { getBarterImg } from './../../ducks/ProfileCreatorReducer';
 import { connect } from 'react-redux';
 
-
-
-
 class BarterImg extends Component {
     constructor(props) {
         super(props);
-        
         this.state = {
             file: '',
             imagePreview: ''
         };
-
-        this.handlePreview = this.handlePreview.bind(this);
+      this.handlePreview = this.handlePreview.bind(this);
     }
 
     handlePreview(file) {
@@ -52,17 +47,13 @@ class BarterImg extends Component {
     console.log(this.props)
     return (
       <div>
-        
-    
-
         {this.state.imagePreview && <img src={this.state.imagePreview} />}
-
         <input
           placeholder="Barter Upload"
           type="file"
           onChange={(event) => {
             this.handlePreview(event.target.files)
-		}}
+		    }}
         />
       </div>
     );
@@ -77,4 +68,3 @@ class BarterImg extends Component {
   }
 
   export default connect( mapStateToProps, { getBarterImg } )( BarterImg );
-
